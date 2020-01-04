@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersistence from "vuex-persist";
 
-import layout from "./layout";
+import layout from "./layout.module";
 
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage
