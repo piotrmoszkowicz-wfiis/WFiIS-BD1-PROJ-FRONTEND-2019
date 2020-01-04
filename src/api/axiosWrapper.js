@@ -20,6 +20,7 @@ axiosWrapper.interceptors.request.use(config => {
 axiosWrapper.interceptors.response.use(
   response => response,
   error => {
+    /* eslint-disable no-console */
     console.error("Error during request", error);
 
     if (error.response.status === 401) {

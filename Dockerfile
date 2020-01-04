@@ -4,7 +4,7 @@ ENV NODE_ENV=production
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-RUN npm i -g @vue/cli
+RUN npm i -g @vue/cli-service-global
 COPY . .
 RUN npm run build
 

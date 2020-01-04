@@ -19,7 +19,7 @@
   import AnimatedNumber from "animated-number-vue";
   import * as am4core from "@amcharts/amcharts4/core";
   import * as am4maps from "@amcharts/amcharts4/maps";
-  import am4geodata_usaHigh from "@amcharts/amcharts4-geodata/usaHigh";
+  import am4geodata_worldHigh from "@amcharts/amcharts4-geodata/worldHigh";
 
   import cities from "./mock";
 
@@ -45,8 +45,8 @@
     },
     mounted() {
       let map = am4core.create(this.$refs.map, am4maps.MapChart);
-      map.geodata = am4geodata_usaHigh;
-      map.projection = new am4maps.projections.AlbersUsa();
+      map.geodata = am4geodata_worldHigh;
+      map.projection = new am4maps.projections.NaturalEarth1();
       let polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
       polygonSeries.useGeodata = true;
       map.homeZoomLevel = 1.2;
