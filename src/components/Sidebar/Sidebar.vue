@@ -30,7 +30,7 @@
           isHeader
       />
       <NavLink
-          header="Lista przedmiotów"
+          header="Lista itemów"
           link="/app/items"
           iconName="flaticon-notepad"
           index="items"
