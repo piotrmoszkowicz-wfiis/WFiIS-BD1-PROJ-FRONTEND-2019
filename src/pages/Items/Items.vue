@@ -37,11 +37,11 @@
                     </span>
                   </td>
                   <td>
-                    <router-link :to="`/app/items/edit/${item.id}`" class="text-info">
+                    <router-link :to="`/app/items/view/${item.id}`" class="text-info">
                       <span class="icon">
-                        <i class="fi flaticon-edit"/>
+                        <i class="fi flaticon-binoculars"/>
                       </span>
-                      Edytuj
+                      Podgląd
                     </router-link>
                     <router-link :to="`/app/items/delete/${item.id}`" class="text-danger">
                       <span class="icon">
