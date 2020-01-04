@@ -4,6 +4,7 @@ ENV NODE_ENV=production
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
+RUN npm i -g @vue/cli
 COPY . .
 RUN npm run build
 
