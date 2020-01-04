@@ -1,7 +1,7 @@
 import jwtDecode from "jwt-decode";
 
 import axiosWrapper from "@/api/axiosWrapper";
-import router from "@/Routes";
+import { postLogin } from "../api";
 
 const initialState = () => ({
   authToken: null,
@@ -11,8 +11,20 @@ const initialState = () => ({
 const state = initialState();
 
 const actions = {
-  login({ dispatch, commit }, formData) {
+  async logIn({ commit }, formData) {
+    const result = await postLogin(formData.email, formData.password);
 
+    if (result && result.data && result.data.token) {
+      commit("loginSuccess", result.data);
+      return true;
+    }
+
+    return false;
+  },
+
+  logOut({ commit }) {
+    commit("setAuthToken", null);
+    delete axiosWrapper.defaults.headers.Authorization;
   }
 };
 
@@ -20,6 +32,10 @@ const mutations = {
   loginSuccess(state, loginData) {
     state.authToken = loginData.token;
     state.userData = jwtDecode(loginData.token);
+  },
+
+  setAuthToken(state, authToken) {
+    state.authToken = authToken;
   }
 };
 
@@ -33,7 +49,7 @@ const getters = {
   }
 };
 
-export const user = {
+export default {
   namespaced: true,
   state,
   actions,
