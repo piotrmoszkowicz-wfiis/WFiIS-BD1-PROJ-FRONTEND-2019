@@ -2,10 +2,10 @@
   <div>
     <b-breadcrumb>
       <b-breadcrumb-item>TU JESTEŚ</b-breadcrumb-item>
-      <b-breadcrumb-item active>Lista serwerów</b-breadcrumb-item>
+      <b-breadcrumb-item active>Lista przedmiotów</b-breadcrumb-item>
     </b-breadcrumb>
     <h2 class="page-title">
-      Lista <span class="fw-semi-bold">serwerów</span>
+      Lista <span class="fw-semi-bold">przedmiotów</span>
     </h2>
     <b-row>
       <b-col>
