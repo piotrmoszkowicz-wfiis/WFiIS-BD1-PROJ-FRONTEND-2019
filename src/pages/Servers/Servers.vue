@@ -14,7 +14,7 @@
 import Widget from "@/components/Widget/Widget";
 
 export default {
-  name: "AnotherPage",
+  name: "Servers",
   components: { Widget },
 };
 </script>
