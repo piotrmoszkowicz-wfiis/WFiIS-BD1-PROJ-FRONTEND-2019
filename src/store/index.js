@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersistence from "vuex-persist";
 
+import items from "./items.module";
 import layout from "./layout.module";
 import servers from "./servers.module";
 import user from "./user.module";
@@ -15,6 +16,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
+    items,
     layout,
     servers,
     user,

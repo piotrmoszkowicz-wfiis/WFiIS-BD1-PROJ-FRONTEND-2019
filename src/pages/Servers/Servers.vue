@@ -41,11 +41,11 @@
                     </span>
                   </td>
                   <td>
-                    <router-link :to="`/app/servers/edit/${server.id}`" class="text-info">
+                    <router-link :to="`/app/servers/view/${server.id}`" class="text-info">
                       <span class="icon">
-                        <i class="fi flaticon-edit"/>
+                        <i class="fi flaticon-binoculars"/>
                       </span>
-                      Edytuj
+                      Podgląd
                     </router-link>
                     <router-link :to="`/app/servers/delete/${server.id}`" class="text-danger">
                       <span class="icon">

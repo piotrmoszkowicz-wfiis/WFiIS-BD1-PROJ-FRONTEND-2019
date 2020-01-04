@@ -29,11 +29,11 @@
                   <td>{{ user.createdAt }}</td>
                   <td>{{ user.rights }}</td>
                   <td>
-                    <router-link :to="`/app/users/edit/${user.id}`" class="text-info">
+                    <router-link :to="`/app/users/view/${user.id}`" class="text-info">
                       <span class="icon">
-                        <i class="fi flaticon-edit"/>
+                        <i class="fi flaticon-binoculars"/>
                       </span>
-                      Edytuj
+                      Podgląd
                     </router-link>
                     <router-link :to="`/app/users/delete/${user.id}`" class="text-danger">
                       <span class="icon">
