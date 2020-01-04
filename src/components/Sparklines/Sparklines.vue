@@ -5,7 +5,7 @@
 <script>
 
 export default {
-  name: 'Sparklines',
+  name: "Sparklines",
   props: {
     type: { type: String, default: "bar" },
     data: { type: Array },
@@ -25,7 +25,7 @@ export default {
         },
         plotOptions: {
           bar: {
-            columnWidth: '60%'
+            columnWidth: "60%"
           }
         },
         xaxis: {
@@ -34,7 +34,7 @@ export default {
           },
         },
         tooltip: {
-          theme: 'dark',
+          theme: "dark",
           fixed: {
             enabled: false
           },
@@ -44,7 +44,7 @@ export default {
           y: {
             title: {
               formatter: function () {
-                return ''
+                return ""
               }
             }
           },
@@ -57,4 +57,4 @@ export default {
   }
 }
 </script>
-<style src="./Sparklines.scss" lang="scss"></style>
+<style src="./Sparklines.scss" lang="scss" />

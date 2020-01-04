@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-3 col-12 text-center">
               <span class="status rounded rounded-lg bg-widget">
-                <span><AnimatedNumber :value="75" v-bind="animateNumberOptions"></AnimatedNumber>%</span>
+                <span><AnimatedNumber :value="75" v-bind="animateNumberOptions" />%</span>
               </span>
             </div>
           </div>
@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-3 col-12 text-center">
               <span class="status rounded rounded-lg bg-widget">
-                <span><AnimatedNumber :value="84" v-bind="animateNumberOptions"></AnimatedNumber>%</span>
+                <span><AnimatedNumber :value="84" v-bind="animateNumberOptions" />%</span>
               </span>
             </div>
           </div>
@@ -54,7 +54,7 @@
             </div>
             <div class="col-md-3 col-12 text-center">
               <span class="status rounded rounded-lg bg-widget">
-                <span><AnimatedNumber :value="92" v-bind="animateNumberOptions"></AnimatedNumber>%</span>
+                <span><AnimatedNumber :value="92" v-bind="animateNumberOptions" />%</span>
               </span>
             </div>
           </div>
@@ -301,7 +301,7 @@
             </table>
           </div>
           <div class="widget-body mt-xlg chart-overflow-bottom">
-            <area-chart class="area-chart" height="100px" :options="{legend: false, scales: {yAxes: [{display: false}], xAxes: [{display: false}]}}"  :chart-data="dataCollection"></area-chart>
+            <area-chart class="area-chart" height="100px" :options="{legend: false, scales: {yAxes: [{display: false}], xAxes: [{display: false}]}}"  :chart-data="dataCollection" />
           </div>
         </Widget>
       </b-col>
@@ -328,35 +328,35 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import Widget from '@/components/Widget/Widget';
-import Map from './components/Map/Map';
+import Vue from "vue";
+import Widget from "@/components/Widget/Widget";
+import Map from "./components/Map/Map";
 import AnimatedNumber from "animated-number-vue";
-import AreaChart from './components/AreaChart/AreaChart';
+import AreaChart from "./components/AreaChart/AreaChart";
 
 const todos = [
   {
-    description: 'Take Sebastian to basketball practice.',
+    description: "Take Sebastian to basketball practice.",
     isComplete: false,
     dates: { weekdays: 6, weeklyInterval: 2 }, // Every other Friday
-    color: '#ff8080',       // Red
+    color: "#ff8080",       // Red
   },
   {
-    description: 'German courses',
+    description: "German courses",
     isComplete: false,
     dates: new Date(),
-    color: '#64a4ff',       // Red
+    color: "#64a4ff",       // Red
   },
   {
-    description: 'Constitution Day',
+    description: "Constitution Day",
     isComplete: false,
     dates: new Date(Date.now() + 6*24*60*60*1000), // in 6 days
-    color: '#6ae696',       // Red
+    color: "#6ae696",       // Red
   },
 ];
 
 export default {
-  name: 'Dashboard',
+  name: "Dashboard",
   components: {
     Widget,
     Map,
@@ -367,7 +367,7 @@ export default {
     return {
       animateNumberOptions: {
         duration: 2000,
-        easing: 'easeInQuad',
+        easing: "easeInQuad",
         formatValue(value) {
           return value.toFixed(0);
         }
@@ -403,21 +403,21 @@ export default {
           arr[0] = !arr[0];
         }
       }
-      Vue.set(this, 'checkedArr', arr);
+      Vue.set(this, "checkedArr", arr);
     },
     fillData () {
       this.dataCollection = {
         labels: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()],
         datasets: [
           {
-            label: 'Data One',
-            backgroundColor: '#f87979',
-            borderColor: 'transparent',
+            label: "Data One",
+            backgroundColor: "#f87979",
+            borderColor: "transparent",
             data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
           }, {
-            label: 'Data Two',
-            backgroundColor: '#7c87f8',
-            borderColor: 'transparent',
+            label: "Data Two",
+            backgroundColor: "#7c87f8",
+            borderColor: "transparent",
             data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
           }
         ]
@@ -433,8 +433,8 @@ export default {
         // Today attribute
         {
           contentStyle: {
-            fontWeight: '700',
-            fontSize: '.9rem',
+            fontWeight: "700",
+            fontSize: ".9rem",
           },
           dates: new Date(),
         },

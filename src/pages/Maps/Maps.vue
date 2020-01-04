@@ -29,10 +29,10 @@
 </template>
 
 <script>
-  import Widget from '@/components/Widget/Widget';
+  import Widget from "@/components/Widget/Widget";
 
   export default {
-    name: 'Maps',
+    name: "Maps",
     components: { Widget }
   };
 </script>

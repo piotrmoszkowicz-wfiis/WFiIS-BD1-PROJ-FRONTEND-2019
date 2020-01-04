@@ -7,7 +7,7 @@
     loading: fetchingData
   }" ref="widget">
     <h5 v-if="title && typeof title === 'string' && !customHeader" class="title">{{title}}</h5>
-    <header v-if="title && customHeader" class="title" v-html="title"></header>
+    <header v-if="title && customHeader" class="title" v-html="title"/>
     <div v-if="!customControls && mainControls"
       class="widgetControls widget-controls">
       <a v-if="settings" href="#"><i class="la la-cog" /></a>
@@ -16,7 +16,7 @@
       </a>
       <a @click="loadWidgster($event)" v-if="refresh" href="#" :id="`reloadId-${randomId}`">
         <strong v-if="typeof refresh === 'string'" class="text-gray-light">{{refresh}}</strong>
-        <i v-else class="la la-refresh"></i>
+        <i v-else class="la la-refresh"/>
           <b-tooltip
             v-if="showTooltip"
             :placement="tooltipPlacement"
@@ -25,7 +25,7 @@
           </b-tooltip>
       </a>
       <a @click="changeState($event, 'fullscreen')" v-if="fullscreen && state !== 'fullscreen'" href="#" :id="`fullscreenId-${randomId}`">
-        <i class="glyphicon glyphicon-resize-full"></i>
+        <i class="glyphicon glyphicon-resize-full"/>
         <b-tooltip
           v-if="showTooltip"
           :placement="tooltipPlacement"
@@ -34,7 +34,7 @@
         </b-tooltip>
       </a>
       <a @click="changeState($event, 'default')" v-if="fullscreen && state === 'fullscreen'" href="#" :id="`restoreId-${randomId}`">
-        <i class="glyphicon glyphicon-resize-small"></i>
+        <i class="glyphicon glyphicon-resize-small"/>
         <b-tooltip
           v-if="showTooltip"
           :placement="tooltipPlacement"
@@ -44,7 +44,7 @@
       </a>
       <span v-if="collapse && state !== 'collapse'">
         <a href="#" @click="changeState($event, 'collapse')" :id="`collapseId-${randomId}`">
-          <i class="la la-angle-down"></i>
+          <i class="la la-angle-down"/>
           <b-tooltip
             v-if="showTooltip"
             :placement="tooltipPlacement"
@@ -55,7 +55,7 @@
       </span>
       <span v-if="collapse && state === 'collapse'">
         <a href="#" @click="changeState($event, 'default')" :id="`expandId-${randomId}`">
-          <i class="la la-angle-up"></i>
+          <i class="la la-angle-up"/>
           <b-tooltip
             v-if="showTooltip"
             :placement="tooltipPlacement"
@@ -66,7 +66,7 @@
       </span>
       <a v-if="close" href="#" @click="closeWidget($event)" :id="`closeId-${randomId}`">
         <strong v-if="typeof refresh === 'string'" class="text-gray-light">{{close}}</strong>
-        <i v-else class="la la-remove"></i>
+        <i v-else class="la la-remove"/>
         <b-tooltip
           v-if="showTooltip"
           :placement="tooltipPlacement"
@@ -79,25 +79,25 @@
     <div :class="`widgetBody widget-body ${bodyClass}`" ref="widgetBodyRef"
           :style="{display: state === 'collapse' ? 'none' : ''}"
     >
-      <Loader v-if="fetchingData && showLoader" :class="'widget-loader'" :size="40"></Loader>
-      <slot v-else></slot>
+      <Loader v-if="fetchingData && showLoader" :class="'widget-loader'" :size="40" />
+      <slot v-else />
     </div>
   </section>
 </template>
 
 <script>
-import Loader from '../Loader/Loader';
+import Loader from "../Loader/Loader";
 
 export default {
-  name: 'Widget',
+  name: "Widget",
   data: function() {
     return {
-      state: this.collapsed ? 'collapse' : 'default'
+      state: this.collapsed ? "collapse" : "default"
     }
   },
   props: {
     customHeader: { type: Boolean, default: false },
-    tooltipPlacement: { default: 'top' },
+    tooltipPlacement: { default: "top" },
     showTooltip: { type: Boolean, default: false },
     close: { type: [Boolean, String], default: false },
     fullscreen: { type: [Boolean, String], default: false },
@@ -105,10 +105,10 @@ export default {
     settings: { type: [Boolean, String], default: false },
     settingsInverse: { type: Boolean, default: false },
     refresh: { type: [Boolean, String], default: false },
-    className: { default: '' },
-    title: { default: '' },
+    className: { default: "" },
+    title: { default: "" },
     customControls: { default: null },
-    bodyClass: { default: '' },
+    bodyClass: { default: "" },
     options: { default: () => ({}) },
     fetchingData: {type: Boolean, default: false},
     showLoader: {type: Boolean, default: true},
@@ -128,23 +128,23 @@ export default {
   mounted() {
     if (this.autoload && this.$listeners && this.$listeners.load) {
       this.loadWidgster();
-      if (typeof this.autoload === 'number') {
+      if (typeof this.autoload === "number") {
         setInterval(() => {this.loadWidgster()}, this.autoload);
       }
     }
     if (this.customControls) {
-      let close = this.$refs.customControlsRef.querySelector('[control=close]');
-      close && close.addEventListener('click', this.closeWidget);
-      let collapse = this.$refs.customControlsRef.querySelector('[control=collapse]');
-      collapse && collapse.addEventListener('click', this.changeState.bind(this, null, 'collapse'));
-      let expand = this.$refs.customControlsRef.querySelector('[control=expand]');
-      expand && expand.addEventListener('click', this.changeState.bind(this, null, 'default'));
-      let fullscreen = this.$refs.customControlsRef.querySelector('[control=fullscreen]');
-      fullscreen && fullscreen.addEventListener('click', this.changeState.bind(this, null, 'fullscreen'));
-      let restore = this.$refs.customControlsRef.querySelector('[control=restore]');
-      restore && restore.addEventListener('click', this.changeState.bind(this, null, 'default'));
-      let load = this.$refs.customControlsRef.querySelector('[control=load]');
-      load && load.addEventListener('click', this.loadWidgster);
+      let close = this.$refs.customControlsRef.querySelector("[control=close]");
+      close && close.addEventListener("click", this.closeWidget);
+      let collapse = this.$refs.customControlsRef.querySelector("[control=collapse]");
+      collapse && collapse.addEventListener("click", this.changeState.bind(this, null, "collapse"));
+      let expand = this.$refs.customControlsRef.querySelector("[control=expand]");
+      expand && expand.addEventListener("click", this.changeState.bind(this, null, "default"));
+      let fullscreen = this.$refs.customControlsRef.querySelector("[control=fullscreen]");
+      fullscreen && fullscreen.addEventListener("click", this.changeState.bind(this, null, "fullscreen"));
+      let restore = this.$refs.customControlsRef.querySelector("[control=restore]");
+      restore && restore.addEventListener("click", this.changeState.bind(this, null, "default"));
+      let load = this.$refs.customControlsRef.querySelector("[control=load]");
+      load && load.addEventListener("click", this.loadWidgster);
     }
   },
   methods: {
@@ -176,7 +176,7 @@ export default {
     },
     loadWidgster(e) {
       e && e.preventDefault();
-      this.$emit('load');
+      this.$emit("load");
     }
   }
 };

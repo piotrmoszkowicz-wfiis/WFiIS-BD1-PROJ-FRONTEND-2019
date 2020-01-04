@@ -241,7 +241,7 @@
                 <td>On the Road</td>
                 <td class="text-right">$25 224.2</td>
                 <td class="text-center">
-                  <Sparklines :data="getRandomData()" :options="getRandomColor()"></Sparklines>
+                  <Sparklines :data="getRandomData()" :options="getRandomColor()" />
                 </td>
               </tr>
               <tr>
@@ -257,7 +257,7 @@
                 <td>HP Core i7</td>
                 <td class="text-right">$87 346.1</td>
                 <td class="text-center">
-                  <Sparklines :data="getRandomData()" :options="getRandomColor()"></Sparklines>
+                  <Sparklines :data="getRandomData()" :options="getRandomColor()" />
                 </td>
               </tr>
               <tr>
@@ -273,7 +273,7 @@
                 <td>Let&apos;s Dance</td>
                 <td class="text-right">$57 944.6</td>
                 <td class="text-center">
-                  <Sparklines :data="getRandomData()" :options="getRandomColor()"></Sparklines>
+                  <Sparklines :data="getRandomData()" :options="getRandomColor()" />
                 </td>
               </tr>
               <tr>
@@ -289,7 +289,7 @@
                 <td>Air Pro</td>
                 <td class="text-right">$118 533.1</td>
                 <td class="text-center">
-                  <Sparklines :data="getRandomData()" :options="getRandomColor()"></Sparklines>
+                  <Sparklines :data="getRandomData()" :options="getRandomColor()" />
                 </td>
               </tr>
               <tr>
@@ -305,7 +305,7 @@
                 <td>Version Control</td>
                 <td class="text-right">$72 854.5</td>
                 <td class="text-center">
-                  <Sparklines :data="getRandomData()" :options="getRandomColor()"></Sparklines>
+                  <Sparklines :data="getRandomData()" :options="getRandomColor()" />
                 </td>
               </tr>
             </tbody>
@@ -354,7 +354,7 @@
                   <td>On the Road</td>
                   <td class="text-right">$25 224.2</td>
                   <td class="text-center">
-                    <Sparklines :data="getRandomData()" :options="getRandomColor()"></Sparklines>
+                    <Sparklines :data="getRandomData()" :options="getRandomColor()" />
                   </td>
                 </tr>
                 <tr>
@@ -370,7 +370,7 @@
                   <td>HP Core i7</td>
                   <td class="text-right">$87 346.1</td>
                   <td class="text-center">
-                    <Sparklines :data="getRandomData()" :options="getRandomColor()"></Sparklines>
+                    <Sparklines :data="getRandomData()" :options="getRandomColor()" />
                   </td>
                 </tr>
                 <tr>
@@ -386,7 +386,7 @@
                   <td>Let&apos;s Dance</td>
                   <td class="text-right">$57 944.6</td>
                   <td class="text-center">
-                    <Sparklines :data="getRandomData()" :options="getRandomColor()"></Sparklines>
+                    <Sparklines :data="getRandomData()" :options="getRandomColor()" />
                   </td>
                 </tr>
                 <tr>
@@ -402,7 +402,7 @@
                   <td>Air Pro</td>
                   <td class="text-right">$118 533.1</td>
                   <td class="text-center">
-                    <Sparklines :data="getRandomData()" :options="getRandomColor()"></Sparklines>
+                    <Sparklines :data="getRandomData()" :options="getRandomColor()" />
                   </td>
                 </tr>
                 <tr>
@@ -418,7 +418,7 @@
                   <td>Version Control</td>
                   <td class="text-right">$72 854.5</td>
                   <td class="text-center">
-                    <Sparklines :data="getRandomData()" :options="getRandomColor()"></Sparklines>
+                    <Sparklines :data="getRandomData()" :options="getRandomColor()" />
                   </td>
                 </tr>
               </tbody>
@@ -431,93 +431,93 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import Widget from '@/components/Widget/Widget';
-import Sparklines from '../../components/Sparklines/Sparklines'
+import Vue from "vue";
+import Widget from "@/components/Widget/Widget";
+import Sparklines from "../../components/Sparklines/Sparklines"
 
 export default {
-  name: 'Tables',
+  name: "Tables",
   components: { Widget, Sparklines },
   data() {
     return {
       tableStyles: [
         {
           id: 1,
-          picture: require('../../assets/tables/1.jpg'), // eslint-disable-line global-require
-          description: 'Palo Alto',
+          picture: require("../../assets/tables/1.jpg"), // eslint-disable-line global-require
+          description: "Palo Alto",
           info: {
-            type: 'JPEG',
-            dimensions: '200x150',
+            type: "JPEG",
+            dimensions: "200x150",
           },
-          date: new Date('September 14, 2018'),
-          size: '45.6 KB',
+          date: new Date("September 14, 2018"),
+          size: "45.6 KB",
           progress: {
             percent: 29,
-            colorClass: 'success',
+            colorClass: "success",
           },
         },
         {
           id: 2,
-          picture: require('../../assets/tables/2.jpg'), // eslint-disable-line global-require
-          description: 'The Sky',
+          picture: require("../../assets/tables/2.jpg"), // eslint-disable-line global-require
+          description: "The Sky",
           info: {
-            type: 'PSD',
-            dimensions: '2400x1455',
+            type: "PSD",
+            dimensions: "2400x1455",
           },
-          date: new Date('November 14, 2018'),
-          size: '15.3 MB',
+          date: new Date("November 14, 2018"),
+          size: "15.3 MB",
           progress: {
             percent: 33,
-            colorClass: 'warning',
+            colorClass: "warning",
           },
         },
         {
           id: 3,
-          picture: require('../../assets/tables/3.jpg'), // eslint-disable-line global-require
-          description: 'Down the road',
+          picture: require("../../assets/tables/3.jpg"), // eslint-disable-line global-require
+          description: "Down the road",
           label: {
-            colorClass: 'danger',
-            text: 'INFO!',
+            colorClass: "danger",
+            text: "INFO!",
           },
           info: {
-            type: 'JPEG',
-            dimensions: '200x150',
+            type: "JPEG",
+            dimensions: "200x150",
           },
-          date: new Date('September 14, 2018'),
-          size: '49.0 KB',
+          date: new Date("September 14, 2018"),
+          size: "49.0 KB",
           progress: {
             percent: 38,
-            colorClass: 'inverse',
+            colorClass: "inverse",
           },
         },
         {
           id: 4,
-          picture: require('../../assets/tables/4.jpg'), // eslint-disable-line global-require
-          description: 'The Edge',
+          picture: require("../../assets/tables/4.jpg"), // eslint-disable-line global-require
+          description: "The Edge",
           info: {
-            type: 'PNG',
-            dimensions: '210x160',
+            type: "PNG",
+            dimensions: "210x160",
           },
-          date: new Date('September 15, 2018'),
-          size: '69.1 KB',
+          date: new Date("September 15, 2018"),
+          size: "69.1 KB",
           progress: {
             percent: 17,
-            colorClass: 'danger',
+            colorClass: "danger",
           },
         },
         {
           id: 5,
-          picture: require('../../assets/tables/5.jpg'), // eslint-disable-line global-require
-          description: 'Fortress',
+          picture: require("../../assets/tables/5.jpg"), // eslint-disable-line global-require
+          description: "Fortress",
           info: {
-            type: 'JPEG',
-            dimensions: '1452x1320',
+            type: "JPEG",
+            dimensions: "1452x1320",
           },
-          date: new Date('October 1, 2018'),
-          size: '2.3 MB',
+          date: new Date("October 1, 2018"),
+          size: "2.3 MB",
           progress: {
             percent: 41,
-            colorClass: 'primary',
+            colorClass: "primary",
           },
         },
       ],
@@ -528,8 +528,8 @@ export default {
   },
   methods: {
     parseDate(date) {
-      const dateSet = date.toDateString().split(' ');
-      return `${date.toLocaleString('en-us', { month: 'long' })} ${dateSet[2]}, ${dateSet[3]}`;
+      const dateSet = date.toDateString().split(" ");
+      return `${date.toLocaleString("en-us", { month: "long" })} ${dateSet[2]}, ${dateSet[3]}`;
     },
     checkAll(ev, checkbox) {
       const checkboxArr = (new Array(this[checkbox].length)).fill(ev.target.checked);
@@ -551,7 +551,7 @@ export default {
       return [{data: result}];
     },
     getRandomColor() {
-      const colors = ['#547fff', '#9964e3', '#f55d5d', '#ffc247', '#3abf94'];
+      const colors = ["#547fff", "#9964e3", "#f55d5d", "#ffc247", "#3abf94"];
       return {colors: [colors[Math.floor(Math.random() * colors.length)]]}
     }
   },

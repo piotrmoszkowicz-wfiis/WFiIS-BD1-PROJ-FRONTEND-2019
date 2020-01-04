@@ -71,16 +71,16 @@
 </template>
 
 <script>
-import Widget from '@/components/Widget/Widget';
+import Widget from "@/components/Widget/Widget";
 
 export default {
-  name: 'Notifications',
+  name: "Notifications",
   components: { Widget },
   methods: {
     addSuccessNotification() {
-      this.$toasted.success('Showing success message was successful!', {
+      this.$toasted.success("Showing success message was successful!", {
         action: {
-          text: 'Close',
+          text: "Close",
           onClick: (e, toastObject) => {
             toastObject.goAway(0);
           }
@@ -88,36 +88,36 @@ export default {
       })
     },
     addInfoNotification() {
-      this.$toasted.info('Launching thermonuclear war...', {
+      this.$toasted.info("Launching thermonuclear war...", {
         action: {
-          text: 'Cancel launch',
+          text: "Cancel launch",
           onClick: (e, toastObject) => {
-            toastObject.text('Thermonuclear war averted').goAway(1000);
+            toastObject.text("Thermonuclear war averted").goAway(1000);
           }
         }
       });
     },
     addErrorNotification() {
-      this.$toasted.error('Launching thermonuclear war...', {
+      this.$toasted.error("Launching thermonuclear war...", {
         action: [
           {
-            text: 'Cancel',
+            text: "Cancel",
             onClick: (e, toastObject) => {
-              toastObject.el.classList.remove('info');
-              toastObject.el.classList.add('success');
-              toastObject.text('Alien planet destroyed!').goAway(2000);
+              toastObject.el.classList.remove("info");
+              toastObject.el.classList.add("success");
+              toastObject.text("Alien planet destroyed!").goAway(2000);
             }
           }
         ]
       });
     },
-    toggleLocation(position = 'top-right') {
+    toggleLocation(position = "top-right") {
       this.$toasted.options.position = position;
       this.$toasted.show(null);
     },
   },
   created() {
-    this.$toasted.show('Thanks for checking out Messenger!');
+    this.$toasted.show("Thanks for checking out Messenger!");
   },
 };
 </script>

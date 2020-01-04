@@ -114,7 +114,7 @@
 
 <script>
 export default {
-  name: 'NewNotificationsList',
+  name: "NewNotificationsList",
 };
 </script>
 

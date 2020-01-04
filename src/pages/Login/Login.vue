@@ -11,7 +11,7 @@
           </b-alert>
           <b-form-group label="Email" label-for="email">
             <b-input-group class="input-group-no-border">
-              <b-input-group-text slot="prepend"><i class="la la-user text-white"></i></b-input-group-text>
+              <b-input-group-text slot="prepend"><i class="la la-user text-white"/></b-input-group-text>
               <input id="email"
                      ref="email"
                      class="form-control input-transparent pl-3"
@@ -22,7 +22,7 @@
           </b-form-group>
           <b-form-group label="Password" label-for="password">
             <b-input-group class="input-group-no-border">
-              <b-input-group-text slot="prepend"><i class="la la-lock text-white"></i></b-input-group-text>
+              <b-input-group-text slot="prepend"><i class="la la-lock text-white"/></b-input-group-text>
               <input id="password"
                      ref="password"
                      class="form-control input-transparent pl-3"
@@ -34,7 +34,7 @@
           <div class="bg-widget auth-widget-footer">
             <b-button type="submit" variant="danger" class="auth-btn" size="sm">
               <span class="auth-btn-circle">
-                <i class="la la-caret-right"></i>
+                <i class="la la-caret-right"/>
               </span>
               Login
             </b-button>
@@ -44,11 +44,11 @@
             <router-link class="d-block text-center mb-4" to="login">Create an Account</router-link>
             <div class="social-buttons">
               <b-button variant="primary" class="social-button">
-                <i class="social-icon social-google"></i>
+                <i class="social-icon social-google"/>
                 <p class="social-text">GOOGLE</p>
               </b-button>
               <b-button variant="success" class="social-button">
-                <i class="social-icon social-microsoft"></i>
+                <i class="social-icon social-microsoft"/>
                 <p class="social-text">MICROSOFT</p>
               </b-button>
             </div>
@@ -63,10 +63,10 @@
 </template>
 
 <script>
-import Widget from '@/components/Widget/Widget';
+import Widget from "@/components/Widget/Widget";
 
 export default {
-  name: 'LoginPage',
+  name: "LoginPage",
   components: { Widget },
   data() {
     return {
@@ -79,14 +79,14 @@ export default {
       const password = this.$refs.password.value;
 
       if (email.length !== 0 && password.length !== 0) {
-        window.localStorage.setItem('authenticated', true);
-        this.$router.push('/app/dashboard');
+        window.localStorage.setItem("authenticated", true);
+        this.$router.push("/app/dashboard");
       }
     },
   },
   created() {
-    if (window.localStorage.getItem('authenticated') === 'true') {
-      this.$router.push('/app/dashboard');
+    if (window.localStorage.getItem("authenticated") === "true") {
+      this.$router.push("/app/dashboard");
     }
   },
 };

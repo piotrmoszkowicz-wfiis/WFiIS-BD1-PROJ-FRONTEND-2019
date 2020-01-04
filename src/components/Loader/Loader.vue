@@ -1,12 +1,12 @@
 <template>
   <div class="data-loader">
-    <i class="la la-spinner la-spin" v-bind:style="{fontSize: size + 'px'}"></i>
+    <i class="la la-spinner la-spin" v-bind:style="{fontSize: size + 'px'}"/>
   </div>
 </template>
 <script>
 
 export default {
-  name: 'Loader',
+  name: "Loader",
   props: {
     size: {type: Number, default: 21}
   }

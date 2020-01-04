@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import Widget from '@/components/Widget/Widget';
+import Widget from "@/components/Widget/Widget";
 
 export default {
-  name: 'AnotherPage',
+  name: "AnotherPage",
   components: { Widget },
 };
 </script>

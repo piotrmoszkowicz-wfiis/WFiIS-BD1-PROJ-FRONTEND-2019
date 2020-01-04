@@ -4,8 +4,8 @@
             <header class="theme-helper-header d-flex p-0">
                 <div class="theme-helper-toggler" @click="toggle">
                     <div class="theme-helper-spinner text-white">
-                        <i class="la la-cog"></i>
-                        <i class="la la-cog"></i>
+                        <i class="la la-cog"/>
+                        <i class="la la-cog"/>
                     </div>
                 </div>
                 <h6>Configuration</h6>
@@ -36,14 +36,14 @@
                     target="_blank"
                     href="https://flatlogic.com/contact"
                     class="btn btn-outline-default btn-rounded-f fs-mini text-muted d-flex align-items-center">
-                        <i class="glyphicon glyphicon-headphones mr-xs mt-n-sm"></i>
+                        <i class="glyphicon glyphicon-headphones mr-xs mt-n-sm"/>
                         Support
                     </a>
                     <a role="button"
                     target="_blank"
                     href="https://github.com/flatlogic/light-blue-vue-lite"
                     class="btn btn-outline-default btn-rounded-f fs-mini text-muted d-flex align-items-center">
-                        <i class="fa fa-github mr-xs"></i>
+                        <i class="fa fa-github mr-xs"/>
                         Github
                     </a>
                 </div>
@@ -54,11 +54,11 @@
                     <div class="d-flexjustify-content-center text-light mt-2 h2 mb-0">
                         <a target="_blank"
                         href="https://twitter.com/intent/tweet?text=Amazing%20admin%20dashboard%20template%20built%20with%20%23VueJS%20and%20%23Bootstrap%204!&url=https://flatlogic.com/templates/light-blue-vue-lite/demo&via=flatlogic">
-                            <i class="fa fa-twitter mx-3"></i>
+                            <i class="fa fa-twitter mx-3"/>
                         </a>
                         <a href="https://www.facebook.com/sharer/sharer.php?u=https://flatlogic.com/templates/light-blue-vue-lite/demo"
                         target="_blank">
-                            <i class="fa fa-facebook mx-3"></i>
+                            <i class="fa fa-facebook mx-3"/>
                         </a>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
 
 <script>
 export default {
-    name: 'Helper',
+    name: "Helper",
     data() {
         return {
             opened: false,

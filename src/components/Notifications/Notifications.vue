@@ -23,15 +23,15 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import Vue from "vue";
 
-import NotifictionsList from './NotificationsDemo/NotificationsList';
-import NewNotifictionsList from './NotificationsDemo/NewNotificationsList';
-import Messages from './NotificationsDemo/Messages';
-import Progress from './NotificationsDemo/Progress';
+import NotifictionsList from "./NotificationsDemo/NotificationsList";
+import NewNotifictionsList from "./NotificationsDemo/NewNotificationsList";
+import Messages from "./NotificationsDemo/Messages";
+import Progress from "./NotificationsDemo/Progress";
 
 export default {
-  name: 'Notification',
+  name: "Notification",
   components: {
     NotifictionsList, NewNotifictionsList, Messages, Progress,
   },
@@ -44,11 +44,11 @@ export default {
   },
   methods: {
     loadNotifications() {
-      Vue.set(this, 'isLoad', true);
+      Vue.set(this, "isLoad", true);
 
       setTimeout(() => {
-        Vue.set(this, 'newNotifications', 'new notifications component');
-        Vue.set(this, 'isLoad', false);
+        Vue.set(this, "newNotifications", "new notifications component");
+        Vue.set(this, "isLoad", false);
       }, 1500);
     },
   },

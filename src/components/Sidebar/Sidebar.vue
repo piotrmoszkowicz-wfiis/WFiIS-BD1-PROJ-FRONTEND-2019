@@ -98,45 +98,45 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-import NavLink from './NavLink/NavLink';
+import { mapState, mapActions } from "vuex";
+import NavLink from "./NavLink/NavLink";
 
 export default {
-  name: 'Sidebar',
+  name: "Sidebar",
   components: { NavLink },
   data() {
     return {
       alerts: [
         {
           id: 0,
-          title: 'Sales Report',
+          title: "Sales Report",
           value: 15,
-          footer: 'Calculating x-axis bias... 65%',
-          color: 'info',
+          footer: "Calculating x-axis bias... 65%",
+          color: "info",
         },
         {
           id: 1,
-          title: 'Personal Responsibility',
+          title: "Personal Responsibility",
           value: 20,
-          footer: 'Provide required notes',
-          color: 'danger',
+          footer: "Provide required notes",
+          color: "danger",
         },
       ],
     };
   },
   methods: {
-    ...mapActions('layout', ['changeSidebarActive', 'switchSidebar']),
+    ...mapActions("layout", ["changeSidebarActive", "switchSidebar"]),
     setActiveByRoute() {
-      const paths = this.$route.fullPath.split('/');
+      const paths = this.$route.fullPath.split("/");
       paths.pop();
-      this.changeSidebarActive(paths.join('/'));
+      this.changeSidebarActive(paths.join("/"));
     },
   },
   created() {
     this.setActiveByRoute();
   },
   computed: {
-    ...mapState('layout', {
+    ...mapState("layout", {
       sidebarOpened: state => !state.sidebarClose,
       activeItem: state => state.sidebarActiveElement,
     }),

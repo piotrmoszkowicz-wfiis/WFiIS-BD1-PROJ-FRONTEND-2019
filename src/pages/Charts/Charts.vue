@@ -24,7 +24,7 @@
               title="<h5>Echarts <span class='fw-semi-bold'>Line Chart</span></h5>"
               close collapse customHeader
           >
-            <echart :options="cd.echarts.line" :init-options="initEchartsOptions" style="height: 370px"></echart>
+            <echart :options="cd.echarts.line" :init-options="initEchartsOptions" style="height: 370px" />
           </Widget>
         </b-col>
         <b-col xs='12' lg='5'>
@@ -32,7 +32,7 @@
               title="<h5>Highcharts <span class='fw-semi-bold'>Line Chart</span></h5>"
               close collapse customHeader
           >
-            <highcharts :options="cd.highcharts.mixed"></highcharts>
+            <highcharts :options="cd.highcharts.mixed" />
             <h5 class="mt">Interactive <span class="fw-semi-bold">Sparklines</span></h5>
             <b-row class="mt">
               <b-col md='6' xs='12'>
@@ -42,7 +42,7 @@
                     <h6 class="name text-muted m-0 fs-mini">Overall Values</h6>
                   </div>
                   <div class="stat-item stat-item-mini-chart">
-                    <Sparklines :data="sparklineData.series" :options="sparklineData.options1" :width="80" :height="25"></Sparklines>
+                    <Sparklines :data="sparklineData.series" :options="sparklineData.options1" :width="80" :height="25" />
                   </div>
                 </div>
               </b-col>
@@ -53,7 +53,7 @@
                     <h6 class="name text-muted m-0 fs-mini">Overall Values</h6>
                   </div>
                   <div class="stat-item stat-item-mini-chart">
-                    <Sparklines :data="sparklineData.series" :options="sparklineData.options2" :width="80" :height="25"></Sparklines>
+                    <Sparklines :data="sparklineData.series" :options="sparklineData.options2" :width="80" :height="25" />
                   </div>
                 </div>
               </b-col>
@@ -75,7 +75,7 @@
                   title="<h5>Echart <span class='fw-semi-bold'>Donut Chart</span></h5>"
                   close collapse customHeader
               >
-                <echart :options="cd.echarts.donut" :init-options="initEchartsOptions" style="height: 175px"></echart>
+                <echart :options="cd.echarts.donut" :init-options="initEchartsOptions" style="height: 175px" />
               </Widget>
             </b-col>
             <b-col xs="12" lg="12">
@@ -83,7 +83,7 @@
                   title="<h5>Highcharts <span class='fw-semi-bold'>Live Chart</span></h5>"
                   close collapse customHeader
               >
-                <highcharts :options="ld" ref="highchart"></highcharts>
+                <highcharts :options="ld" ref="highchart" />
               </Widget>
             </b-col>
           </b-row>
@@ -93,7 +93,7 @@
               title="<h5>Echart <span class='fw-semi-bold'>River Chart</span></h5>"
               close collapse customHeader
           >
-            <echart :options="cd.echarts.river" :init-options="initEchartsOptions" style="height: 350px;"></echart>
+            <echart :options="cd.echarts.river" :init-options="initEchartsOptions" style="height: 350px;" />
           </Widget>
         </b-col>
       </b-row>
@@ -103,24 +103,24 @@
 
 <script>
 import Widget from "@/components/Widget/Widget";
-import {chartData, liveChart, liveChartInterval} from './mock';
+import {chartData, liveChart, liveChartInterval} from "./mock";
 
-import ECharts from 'vue-echarts/components/ECharts';
-import 'echarts/lib/chart/pie';
-import 'echarts/lib/chart/line';
-import 'echarts/lib/chart/themeRiver';
-import 'echarts/lib/component/tooltip';
-import 'echarts/lib/component/legend';
+import ECharts from "vue-echarts/components/ECharts";
+import "echarts/lib/chart/pie";
+import "echarts/lib/chart/line";
+import "echarts/lib/chart/themeRiver";
+import "echarts/lib/component/tooltip";
+import "echarts/lib/component/legend";
 
-import Highcharts from 'highcharts';
-import exporting from 'highcharts/modules/exporting';
-import exportData from 'highcharts/modules/export-data';
+import Highcharts from "highcharts";
+import exporting from "highcharts/modules/exporting";
+import exportData from "highcharts/modules/export-data";
 
 exporting(Highcharts);
 exportData(Highcharts);
 
-import { Chart } from 'highcharts-vue';
-import Sparklines from '../../components/Sparklines/Sparklines'
+import { Chart } from "highcharts-vue";
+import Sparklines from "../../components/Sparklines/Sparklines"
 
 export default {
   name: "Charts",
@@ -130,23 +130,23 @@ export default {
       cd: chartData,
       ld: liveChart,
       initEchartsOptions: {
-        renderer: 'canvas'
+        renderer: "canvas"
       },
       sparklineData: {
         series: [{data: [1,7,3,5,7,8]}],
         options1: {
-          colors: ['#f0af03'],
+          colors: ["#f0af03"],
           plotOptions: {
             bar: {
-              columnWidth: '50%'
+              columnWidth: "50%"
             }
           }
         },
         options2: {
-          colors: ['#ffc0d9'],
+          colors: ["#ffc0d9"],
           plotOptions: {
             bar: {
-              columnWidth: '50%'
+              columnWidth: "50%"
             }
           }
         }

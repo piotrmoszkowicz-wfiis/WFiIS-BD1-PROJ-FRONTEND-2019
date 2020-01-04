@@ -2,7 +2,7 @@
   <li v-if="!childrenLinks && isHeader" :class="{headerLink: true, className}">
     <router-link :to="link">
       <span class="icon">
-        <i :class="fullIconName"></i>
+        <i :class="fullIconName"/>
       </span>
       {{header}} <sup v-if="label" class="headerLabel">{{label}}</sup>
       <b-badge v-if="badge" class="badge rounded-f" variant="warning" pill>{{badge}}</b-badge>
@@ -12,7 +12,7 @@
     <div @click="() => togglePanelCollapse(link)">
       <router-link :to="link" event="" class="d-flex">
         <span class="icon">
-          <i :class="fullIconName"></i>
+          <i :class="fullIconName"/>
         </span>
         {{header}} <sup v-if="label" class="headerLabel">{{label}}</sup>
         <div :class="{caretWrapper: true, carretActive: isActive}">
@@ -41,21 +41,21 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 export default {
-  name: 'NavLink',
+  name: "NavLink",
   props: {
-    badge: { type: String, dafault: '' },
-    header: { type: String, default: '' },
-    iconName: { type: String, default: '' },
-    headerLink: { type: String, default: '' },
-    link: { type: String, default: '' },
+    badge: { type: String, dafault: "" },
+    header: { type: String, default: "" },
+    iconName: { type: String, default: "" },
+    headerLink: { type: String, default: "" },
+    link: { type: String, default: "" },
     childrenLinks: { type: Array, default: null },
-    className: { type: String, default: '' },
+    className: { type: String, default: "" },
     isHeader: { type: Boolean, default: false },
     deep: { type: Number, default: 0 },
-    activeItem: { type: String, default: '' },
+    activeItem: { type: String, default: "" },
     label: { type: String },
     index: { type: String },
   },
@@ -65,7 +65,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions('layout', ['changeSidebarActive']),
+    ...mapActions("layout", ["changeSidebarActive"]),
     togglePanelCollapse(link) {
       this.changeSidebarActive(link);
       this.headerLinkWasClicked = !this.headerLinkWasClicked

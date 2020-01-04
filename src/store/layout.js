@@ -18,10 +18,10 @@ export default {
   },
   actions: {
     switchSidebar({ commit }, value) {
-      commit('switchSidebar', value);
+      commit("switchSidebar", value);
     },
     changeSidebarActive({ commit }, index) {
-      commit('changeSidebarActive', index);
+      commit("changeSidebarActive", index);
     },
   },
 };

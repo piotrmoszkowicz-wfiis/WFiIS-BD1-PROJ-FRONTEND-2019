@@ -7,7 +7,7 @@
       <h6 class="mt-1">GEO-LOCATIONS</h6>
       <p class="h3 m-0">
       <span class="mr-xs fw-normal"><AnimatedNumber value="1656843"
-                                                    v-bind="animateNumberOptions"></AnimatedNumber></span>
+                                                    v-bind="animateNumberOptions"/></span>
         <i class="fa fa-map-marker"/>
       </p>
     </div>
@@ -21,16 +21,16 @@
   import * as am4maps from "@amcharts/amcharts4/maps";
   import am4geodata_usaHigh from "@amcharts/amcharts4-geodata/usaHigh";
 
-  import cities from './mock';
+  import cities from "./mock";
 
   export default {
-    name: 'Map',
+    name: "Map",
     components: {AnimatedNumber},
     data() {
       return {
         animateNumberOptions: {
           duration: 2000,
-          easing: 'easeInQuad',
+          easing: "easeInQuad",
           formatValue(value) {
             let number = value.toFixed(0);
             let numberAsArrayWithSapces = [];
@@ -38,7 +38,7 @@
               numberAsArrayWithSapces.unshift(number % 1000);
               number = (number / 1000).toFixed();
             }
-            return numberAsArrayWithSapces.join(' ');
+            return numberAsArrayWithSapces.join(" ");
           }
         }
       }
@@ -52,8 +52,8 @@
       map.homeZoomLevel = 1.2;
 
       map.zoomControl = new am4maps.ZoomControl();
-      map.zoomControl.align = 'left';
-      map.zoomControl.valign = 'bottom';
+      map.zoomControl.align = "left";
+      map.zoomControl.valign = "bottom";
       map.zoomControl.dy = -20;
       map.zoomControl.minusButton.background.fill = am4core.color("#000");
       map.zoomControl.minusButton.background.fillOpacity = 0.24;
@@ -95,8 +95,8 @@
       circle.strokeWidth = 0;
       let circleHoverState = circle.states.create("hover");
       circleHoverState.properties.strokeWidth = 1;
-      circle.tooltipText = '{tooltip}';
-      circle.propertyFields.radius = 'size';
+      circle.tooltipText = "{tooltip}";
+      circle.propertyFields.radius = "size";
 
       this.map = map;
     },

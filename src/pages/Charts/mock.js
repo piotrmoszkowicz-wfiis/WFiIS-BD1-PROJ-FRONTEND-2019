@@ -1,5 +1,5 @@
-import Highcharts from 'highcharts';
-import config from '../../config';
+import Highcharts from "highcharts";
+import config from "../../config";
 const colors = config.chartColors;
 
 let columnColors = [colors.blue, colors.green, colors.orange, colors.red, colors.purple, colors.dark, colors.teal, colors.pink];
@@ -14,12 +14,12 @@ export const chartData = {
       options: {
         chart: {
           height: 350,
-          type: 'bar'
+          type: "bar"
         },
         colors: columnColors,
         plotOptions: {
           bar: {
-            columnWidth: '45%',
+            columnWidth: "45%",
             distributed: true
           }
         },
@@ -27,11 +27,11 @@ export const chartData = {
           enabled: false,
         },
         xaxis: {
-          categories: ['John', 'Joe', 'Jake', 'Amber', 'Peter', 'Mary', 'David', 'Lily'],
+          categories: ["John", "Joe", "Jake", "Amber", "Peter", "Mary", "David", "Lily"],
           labels: {
             style: {
               colors: columnColors,
-              fontSize: '14px'
+              fontSize: "14px"
             }
           }
         },
@@ -43,7 +43,7 @@ export const chartData = {
           }
         },
         tooltip: {
-          theme: 'dark'
+          theme: "dark"
         }
       }
     },
@@ -65,7 +65,7 @@ export const chartData = {
               width: 200
             },
             legend: {
-              position: 'bottom'
+              position: "bottom"
             }
           }
         }]
@@ -76,13 +76,13 @@ export const chartData = {
     line: {
       color: lineColors,
       tooltip: {
-        trigger: 'none',
+        trigger: "none",
         axisPointer: {
-          type: 'cross'
+          type: "cross"
         }
       },
       legend: {
-        data: ['2015 Precipitation', '2016 Precipitation'],
+        data: ["2015 Precipitation", "2016 Precipitation"],
         textStyle: {
           color: colors.textColor
         }
@@ -93,7 +93,7 @@ export const chartData = {
       },
       xAxis: [
         {
-          type: 'category',
+          type: "category",
           axisTick: {
             alignWithLabel: true
           },
@@ -106,15 +106,15 @@ export const chartData = {
           axisPointer: {
             label: {
               formatter: function (params) {
-                return 'Precipitation  ' + params.value
-                  + (params.seriesData.length ? '：' + params.seriesData[0].data : '');
+                return "Precipitation  " + params.value
+                  + (params.seriesData.length ? "：" + params.seriesData[0].data : "");
               }
             }
           },
           data: ["2016-1", "2016-2", "2016-3", "2016-4", "2016-5", "2016-6", "2016-7", "2016-8", "2016-9", "2016-10", "2016-11", "2016-12"]
         },
         {
-          type: 'category',
+          type: "category",
           axisTick: {
             alignWithLabel: true
           },
@@ -127,8 +127,8 @@ export const chartData = {
           axisPointer: {
             label: {
               formatter: function (params) {
-                return 'Precipitation  ' + params.value
-                  + (params.seriesData.length ? '：' + params.seriesData[0].data : '');
+                return "Precipitation  " + params.value
+                  + (params.seriesData.length ? "：" + params.seriesData[0].data : "");
               }
             }
           },
@@ -137,7 +137,7 @@ export const chartData = {
       ],
       yAxis: [
         {
-          type: 'value',
+          type: "value",
           axisLabel: {
             color: colors.textColor
           },
@@ -155,15 +155,15 @@ export const chartData = {
       ],
       series: [
         {
-          name: '2015 Precipitation',
-          type: 'line',
+          name: "2015 Precipitation",
+          type: "line",
           xAxisIndex: 1,
           smooth: true,
           data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
         },
         {
-          name: '2016 Precipitation',
-          type: 'line',
+          name: "2016 Precipitation",
+          type: "line",
           smooth: true,
           data: [3.9, 5.9, 11.1, 18.7, 48.3, 69.2, 231.6, 46.6, 55.4, 18.4, 10.3, 0.7]
         }
@@ -171,7 +171,7 @@ export const chartData = {
     },
     donut: {
       tooltip: {
-        trigger: 'item',
+        trigger: "item",
         formatter: "{a} <br/>{b}: {c} ({d}%)"
       },
       legend: {
@@ -180,20 +180,20 @@ export const chartData = {
       color: [colors.blue, colors.green, colors.orange, colors.red, colors.purple],
       series: [
         {
-          name: 'Access source',
-          type: 'pie',
-          radius: ['50%', '70%'],
+          name: "Access source",
+          type: "pie",
+          radius: ["50%", "70%"],
           avoidLabelOverlap: false,
           label: {
             normal: {
               show: false,
-              position: 'center'
+              position: "center"
             },
             emphasis: {
               show: true,
               textStyle: {
-                fontSize: '30',
-                fontWeight: 'bold'
+                fontSize: "30",
+                fontWeight: "bold"
               }
             }
           },
@@ -203,30 +203,30 @@ export const chartData = {
             }
           },
           data: [
-            {value: 335, name: 'Direct interview'},
-            {value: 310, name: 'Email marketing'},
-            {value: 234, name: 'Alliance advertising'},
-            {value: 135, name: 'Video ad'},
-            {value: 1548, name: 'Search engine'}
+            {value: 335, name: "Direct interview"},
+            {value: 310, name: "Email marketing"},
+            {value: 234, name: "Alliance advertising"},
+            {value: 135, name: "Video ad"},
+            {value: 1548, name: "Search engine"}
           ]
         }
       ]
     },
     river: {
       tooltip: {
-        trigger: 'axis',
+        trigger: "axis",
         axisPointer: {
-          type: 'line',
+          type: "line",
           lineStyle: {
-            color: 'rgba(0,0,0,0.2)',
+            color: "rgba(0,0,0,0.2)",
             width: 1,
-            type: 'solid'
+            type: "solid"
           }
         }
       },
 
       legend: {
-        data: ['DQ', 'TY', 'SS', 'QG', 'SY', 'DD'],
+        data: ["DQ", "TY", "SS", "QG", "SY", "DD"],
         textStyle: {
           color: colors.textColor
         }
@@ -239,7 +239,7 @@ export const chartData = {
         axisLabel: {
           color: colors.textColor
         },
-        type: 'time',
+        type: "time",
         axisPointer: {
           animation: true,
           label: {
@@ -250,7 +250,7 @@ export const chartData = {
         splitLine: {
           show: true,
           lineStyle: {
-            type: 'dashed',
+            type: "dashed",
             opacity: 0.2
           }
         },
@@ -263,55 +263,55 @@ export const chartData = {
 
       series: [
         {
-          type: 'themeRiver',
+          type: "themeRiver",
           itemStyle: {
             emphasis: {
               shadowBlur: 20,
-              shadowColor: 'rgba(0, 0, 0, 0.8)'
+              shadowColor: "rgba(0, 0, 0, 0.8)"
             }
           },
-          data: [['2015/11/08', 10, 'DQ'], ['2015/11/09', 15, 'DQ'], ['2015/11/10', 35, 'DQ'],
-            ['2015/11/11', 38, 'DQ'], ['2015/11/12', 22, 'DQ'], ['2015/11/13', 16, 'DQ'],
-            ['2015/11/14', 7, 'DQ'], ['2015/11/15', 2, 'DQ'], ['2015/11/16', 17, 'DQ'],
-            ['2015/11/17', 33, 'DQ'], ['2015/11/18', 40, 'DQ'], ['2015/11/19', 32, 'DQ'],
-            ['2015/11/20', 26, 'DQ'], ['2015/11/21', 35, 'DQ'], ['2015/11/22', 40, 'DQ'],
-            ['2015/11/23', 32, 'DQ'], ['2015/11/24', 26, 'DQ'], ['2015/11/25', 22, 'DQ'],
-            ['2015/11/26', 16, 'DQ'], ['2015/11/27', 22, 'DQ'], ['2015/11/28', 10, 'DQ'],
-            ['2015/11/08', 35, 'TY'], ['2015/11/09', 36, 'TY'], ['2015/11/10', 37, 'TY'],
-            ['2015/11/11', 22, 'TY'], ['2015/11/12', 24, 'TY'], ['2015/11/13', 26, 'TY'],
-            ['2015/11/14', 34, 'TY'], ['2015/11/15', 21, 'TY'], ['2015/11/16', 18, 'TY'],
-            ['2015/11/17', 45, 'TY'], ['2015/11/18', 32, 'TY'], ['2015/11/19', 35, 'TY'],
-            ['2015/11/20', 30, 'TY'], ['2015/11/21', 28, 'TY'], ['2015/11/22', 27, 'TY'],
-            ['2015/11/23', 26, 'TY'], ['2015/11/24', 15, 'TY'], ['2015/11/25', 30, 'TY'],
-            ['2015/11/26', 35, 'TY'], ['2015/11/27', 42, 'TY'], ['2015/11/28', 42, 'TY'],
-            ['2015/11/08', 21, 'SS'], ['2015/11/09', 25, 'SS'], ['2015/11/10', 27, 'SS'],
-            ['2015/11/11', 23, 'SS'], ['2015/11/12', 24, 'SS'], ['2015/11/13', 21, 'SS'],
-            ['2015/11/14', 35, 'SS'], ['2015/11/15', 39, 'SS'], ['2015/11/16', 40, 'SS'],
-            ['2015/11/17', 36, 'SS'], ['2015/11/18', 33, 'SS'], ['2015/11/19', 43, 'SS'],
-            ['2015/11/20', 40, 'SS'], ['2015/11/21', 34, 'SS'], ['2015/11/22', 28, 'SS'],
-            ['2015/11/23', 26, 'SS'], ['2015/11/24', 37, 'SS'], ['2015/11/25', 41, 'SS'],
-            ['2015/11/26', 46, 'SS'], ['2015/11/27', 47, 'SS'], ['2015/11/28', 41, 'SS'],
-            ['2015/11/08', 10, 'QG'], ['2015/11/09', 15, 'QG'], ['2015/11/10', 35, 'QG'],
-            ['2015/11/11', 38, 'QG'], ['2015/11/12', 22, 'QG'], ['2015/11/13', 16, 'QG'],
-            ['2015/11/14', 7, 'QG'], ['2015/11/15', 2, 'QG'], ['2015/11/16', 17, 'QG'],
-            ['2015/11/17', 33, 'QG'], ['2015/11/18', 40, 'QG'], ['2015/11/19', 32, 'QG'],
-            ['2015/11/20', 26, 'QG'], ['2015/11/21', 35, 'QG'], ['2015/11/22', 40, 'QG'],
-            ['2015/11/23', 32, 'QG'], ['2015/11/24', 26, 'QG'], ['2015/11/25', 22, 'QG'],
-            ['2015/11/26', 16, 'QG'], ['2015/11/27', 22, 'QG'], ['2015/11/28', 10, 'QG'],
-            ['2015/11/08', 10, 'SY'], ['2015/11/09', 15, 'SY'], ['2015/11/10', 35, 'SY'],
-            ['2015/11/11', 38, 'SY'], ['2015/11/12', 22, 'SY'], ['2015/11/13', 16, 'SY'],
-            ['2015/11/14', 7, 'SY'], ['2015/11/15', 2, 'SY'], ['2015/11/16', 17, 'SY'],
-            ['2015/11/17', 33, 'SY'], ['2015/11/18', 40, 'SY'], ['2015/11/19', 32, 'SY'],
-            ['2015/11/20', 26, 'SY'], ['2015/11/21', 35, 'SY'], ['2015/11/22', 4, 'SY'],
-            ['2015/11/23', 32, 'SY'], ['2015/11/24', 26, 'SY'], ['2015/11/25', 22, 'SY'],
-            ['2015/11/26', 16, 'SY'], ['2015/11/27', 22, 'SY'], ['2015/11/28', 10, 'SY'],
-            ['2015/11/08', 10, 'DD'], ['2015/11/09', 15, 'DD'], ['2015/11/10', 35, 'DD'],
-            ['2015/11/11', 38, 'DD'], ['2015/11/12', 22, 'DD'], ['2015/11/13', 16, 'DD'],
-            ['2015/11/14', 7, 'DD'], ['2015/11/15', 2, 'DD'], ['2015/11/16', 17, 'DD'],
-            ['2015/11/17', 33, 'DD'], ['2015/11/18', 4, 'DD'], ['2015/11/19', 32, 'DD'],
-            ['2015/11/20', 26, 'DD'], ['2015/11/21', 35, 'DD'], ['2015/11/22', 40, 'DD'],
-            ['2015/11/23', 32, 'DD'], ['2015/11/24', 26, 'DD'], ['2015/11/25', 22, 'DD'],
-            ['2015/11/26', 16, 'DD'], ['2015/11/27', 22, 'DD'], ['2015/11/28', 10, 'DD']]
+          data: [["2015/11/08", 10, "DQ"], ["2015/11/09", 15, "DQ"], ["2015/11/10", 35, "DQ"],
+            ["2015/11/11", 38, "DQ"], ["2015/11/12", 22, "DQ"], ["2015/11/13", 16, "DQ"],
+            ["2015/11/14", 7, "DQ"], ["2015/11/15", 2, "DQ"], ["2015/11/16", 17, "DQ"],
+            ["2015/11/17", 33, "DQ"], ["2015/11/18", 40, "DQ"], ["2015/11/19", 32, "DQ"],
+            ["2015/11/20", 26, "DQ"], ["2015/11/21", 35, "DQ"], ["2015/11/22", 40, "DQ"],
+            ["2015/11/23", 32, "DQ"], ["2015/11/24", 26, "DQ"], ["2015/11/25", 22, "DQ"],
+            ["2015/11/26", 16, "DQ"], ["2015/11/27", 22, "DQ"], ["2015/11/28", 10, "DQ"],
+            ["2015/11/08", 35, "TY"], ["2015/11/09", 36, "TY"], ["2015/11/10", 37, "TY"],
+            ["2015/11/11", 22, "TY"], ["2015/11/12", 24, "TY"], ["2015/11/13", 26, "TY"],
+            ["2015/11/14", 34, "TY"], ["2015/11/15", 21, "TY"], ["2015/11/16", 18, "TY"],
+            ["2015/11/17", 45, "TY"], ["2015/11/18", 32, "TY"], ["2015/11/19", 35, "TY"],
+            ["2015/11/20", 30, "TY"], ["2015/11/21", 28, "TY"], ["2015/11/22", 27, "TY"],
+            ["2015/11/23", 26, "TY"], ["2015/11/24", 15, "TY"], ["2015/11/25", 30, "TY"],
+            ["2015/11/26", 35, "TY"], ["2015/11/27", 42, "TY"], ["2015/11/28", 42, "TY"],
+            ["2015/11/08", 21, "SS"], ["2015/11/09", 25, "SS"], ["2015/11/10", 27, "SS"],
+            ["2015/11/11", 23, "SS"], ["2015/11/12", 24, "SS"], ["2015/11/13", 21, "SS"],
+            ["2015/11/14", 35, "SS"], ["2015/11/15", 39, "SS"], ["2015/11/16", 40, "SS"],
+            ["2015/11/17", 36, "SS"], ["2015/11/18", 33, "SS"], ["2015/11/19", 43, "SS"],
+            ["2015/11/20", 40, "SS"], ["2015/11/21", 34, "SS"], ["2015/11/22", 28, "SS"],
+            ["2015/11/23", 26, "SS"], ["2015/11/24", 37, "SS"], ["2015/11/25", 41, "SS"],
+            ["2015/11/26", 46, "SS"], ["2015/11/27", 47, "SS"], ["2015/11/28", 41, "SS"],
+            ["2015/11/08", 10, "QG"], ["2015/11/09", 15, "QG"], ["2015/11/10", 35, "QG"],
+            ["2015/11/11", 38, "QG"], ["2015/11/12", 22, "QG"], ["2015/11/13", 16, "QG"],
+            ["2015/11/14", 7, "QG"], ["2015/11/15", 2, "QG"], ["2015/11/16", 17, "QG"],
+            ["2015/11/17", 33, "QG"], ["2015/11/18", 40, "QG"], ["2015/11/19", 32, "QG"],
+            ["2015/11/20", 26, "QG"], ["2015/11/21", 35, "QG"], ["2015/11/22", 40, "QG"],
+            ["2015/11/23", 32, "QG"], ["2015/11/24", 26, "QG"], ["2015/11/25", 22, "QG"],
+            ["2015/11/26", 16, "QG"], ["2015/11/27", 22, "QG"], ["2015/11/28", 10, "QG"],
+            ["2015/11/08", 10, "SY"], ["2015/11/09", 15, "SY"], ["2015/11/10", 35, "SY"],
+            ["2015/11/11", 38, "SY"], ["2015/11/12", 22, "SY"], ["2015/11/13", 16, "SY"],
+            ["2015/11/14", 7, "SY"], ["2015/11/15", 2, "SY"], ["2015/11/16", 17, "SY"],
+            ["2015/11/17", 33, "SY"], ["2015/11/18", 40, "SY"], ["2015/11/19", 32, "SY"],
+            ["2015/11/20", 26, "SY"], ["2015/11/21", 35, "SY"], ["2015/11/22", 4, "SY"],
+            ["2015/11/23", 32, "SY"], ["2015/11/24", 26, "SY"], ["2015/11/25", 22, "SY"],
+            ["2015/11/26", 16, "SY"], ["2015/11/27", 22, "SY"], ["2015/11/28", 10, "SY"],
+            ["2015/11/08", 10, "DD"], ["2015/11/09", 15, "DD"], ["2015/11/10", 35, "DD"],
+            ["2015/11/11", 38, "DD"], ["2015/11/12", 22, "DD"], ["2015/11/13", 16, "DD"],
+            ["2015/11/14", 7, "DD"], ["2015/11/15", 2, "DD"], ["2015/11/16", 17, "DD"],
+            ["2015/11/17", 33, "DD"], ["2015/11/18", 4, "DD"], ["2015/11/19", 32, "DD"],
+            ["2015/11/20", 26, "DD"], ["2015/11/21", 35, "DD"], ["2015/11/22", 40, "DD"],
+            ["2015/11/23", 32, "DD"], ["2015/11/24", 26, "DD"], ["2015/11/25", 22, "DD"],
+            ["2015/11/26", 16, "DD"], ["2015/11/27", 22, "DD"], ["2015/11/28", 10, "DD"]]
         }
       ]
     }
@@ -319,22 +319,22 @@ export const chartData = {
   highcharts: {
     mixed: {
       chart: {
-        type: 'spline',
+        type: "spline",
         height: 350,
-        backgroundColor: 'transparent'
+        backgroundColor: "transparent"
       },
       exporting: {
         buttons: {
           contextButton: {
             symbolStroke: colors.textColor,
             theme: {
-              fill: 'transparent'
+              fill: "transparent"
             }
           }
         }
       },
       title: {
-        text: 'Snow depth at Vikjafjellet, Norway',
+        text: "Snow depth at Vikjafjellet, Norway",
         style: {
           color: colors.textColor
         }
@@ -343,10 +343,10 @@ export const chartData = {
         enabled: false
       },
       xAxis: {
-        type: 'datetime',
+        type: "datetime",
         dateTimeLabelFormats: { // don't display the dummy year
-          month: '%e. %b',
-          year: '%b'
+          month: "%e. %b",
+          year: "%b"
         },
         labels: {
           style: {
@@ -366,8 +366,8 @@ export const chartData = {
         }
       },
       tooltip: {
-        headerFormat: '<b>{series.name}</b><br>',
-        pointFormat: '{point.x:%e. %b}: {point.y:.2f} m'
+        headerFormat: "<b>{series.name}</b><br>",
+        pointFormat: "{point.x:%e. %b}: {point.y:.2f} m"
       },
       legend: {
         enabled: false
@@ -376,11 +376,11 @@ export const chartData = {
         series: {
           marker: {
             enabled: false,
-            symbol: 'circle'
+            symbol: "circle"
           }
         }
       },
-      colors: [colors.orange, '#ffebb2', '#ffc0d9'],
+      colors: [colors.orange, "#ffebb2", "#ffc0d9"],
 
       series: [{
         name: "Winter 2014-2015",
@@ -415,7 +415,7 @@ export const chartData = {
         ]
       }, {
         name: "Winter 2015-2016",
-        type: 'areaspline',
+        type: "areaspline",
         data: [
           [Date.UTC(1970, 10, 9), 0],
           [Date.UTC(1970, 10, 15), 0.23],
@@ -443,7 +443,7 @@ export const chartData = {
         ]
       }, {
         name: "Winter 2016-2017",
-        type: 'areaspline',
+        type: "areaspline",
         data: [
           [Date.UTC(1970, 9, 15), 0],
           [Date.UTC(1970, 9, 31), 0.09],
@@ -511,9 +511,9 @@ export const liveChart = {
   liveChartInterval: null,
   colors: [colors.blue],
   chart: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
     height: 170,
-    type: 'spline',
+    type: "spline",
     animation: Highcharts.svg, // don't animate in old IE
     marginRight: 10,
     events: {
@@ -538,7 +538,7 @@ export const liveChart = {
   },
   title: false,
   xAxis: {
-    type: 'datetime',
+    type: "datetime",
     tickPixelInterval: 150,
     labels: {
       style: {
@@ -562,8 +562,8 @@ export const liveChart = {
     }
   },
   tooltip: {
-    headerFormat: '<b>{series.name}</b><br/>',
-    pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
+    headerFormat: "<b>{series.name}</b><br/>",
+    pointFormat: "{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}"
   },
   legend: {
     enabled: false
@@ -572,7 +572,7 @@ export const liveChart = {
     enabled: false
   },
   series: [{
-    name: 'Random data',
+    name: "Random data",
     data: (function () {
       // generate an array of random data
       var data = [],

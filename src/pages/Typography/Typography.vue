@@ -110,10 +110,10 @@
 </template>
 
 <script>
-import Widget from '@/components/Widget/Widget';
+import Widget from "@/components/Widget/Widget";
 
 export default {
-  name: 'Typography',
+  name: "Typography",
   components: { Widget },
 };
 </script>
