@@ -4,18 +4,38 @@
     :class="{sidebar: true}"
   >
     <header class="logo">
-      <router-link to="/app">Light <span class="fw-semi-bold">Blue</span></router-link>
+      <router-link to="/app/dashboard">Battlefield Play4Free <span class="fw-semi-bold">ACP</span></router-link>
     </header>
     <ul class="nav">
       <NavLink
               :activeItem="activeItem"
-              header="Dashboard"
+              header="Panel Główny"
               link="/app/dashboard"
               iconName="flaticon-home"
               index="dashboard"
               isHeader
       />
-      <h5 class="navTitle">TEMPLATE</h5>
+      <NavLink
+          header="Lista userów"
+          link="/app/users"
+          iconName="flaticon-user"
+          index="users"
+          isHeader
+      />
+      <NavLink
+          header="Lista serwerów"
+          link="/app/servers"
+          iconName="flaticon-network"
+          index="servers"
+          isHeader
+      />
+      <NavLink
+          header="Lista przedmiotów"
+          link="/app/items"
+          iconName="flaticon-notepad"
+          index="items"
+          isHeader
+      />
       <NavLink
               header="Typography"
               link="/app/typography"
@@ -50,36 +70,6 @@
         ]"
       />
     </ul>
-    <h5 class="navTitle d-sm-down-none">
-      LABELS
-      <a class="actionLink">
-        <i class="la la-plus float-right" />
-      </a>
-    </h5>
-    <ul class="sidebarLabels d-sm-down-none">
-      <li>
-        <a href="#">
-          <i class="fa fa-circle text-warning mr-2" />
-          <span class="labelName">My Recent</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-circle text-gray mr-2" />
-          <span class="labelName">Starred</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-circle text-danger mr-2" />
-          <span class="labelName">Background</span>
-        </a>
-      </li>
-    </ul>
-
-    <h5 class="navTitle d-sm-down-none">
-      PROJECTS
-    </h5>
     <div class="sidebarAlerts d-sm-down-none">
       <b-alert
         v-for="alert in alerts"
@@ -107,7 +97,7 @@ export default {
   data() {
     return {
       alerts: [
-        {
+        /* {
           id: 0,
           title: "Sales Report",
           value: 15,
@@ -120,7 +110,7 @@ export default {
           value: 20,
           footer: "Provide required notes",
           color: "danger",
-        },
+        }, */
       ],
     };
   },

@@ -1,10 +1,8 @@
 # build stage
 FROM node:12.14.0-slim as build-stage
-ENV NODE_ENV=production
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
-RUN npm i -g @vue/cli-service-global
+RUN npm i
 COPY . .
 RUN npm run build
 
