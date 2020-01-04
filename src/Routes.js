@@ -35,6 +35,21 @@ export const router = new Router({
           component: Dashboard,
         },
         {
+          path: "items",
+          name: "Items",
+          component: () => import("@/pages/Items/Items")
+        },
+        {
+          path: "servers",
+          name: "Servers",
+          component: () => import("@/pages/Servers/Servers")
+        },
+        {
+          path: "users",
+          name: "Users",
+          component: () => import("@/pages/Users/Users")
+        },
+        {
           path: "typography",
           name: "Typography",
           component: Typography,
