@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 
+import store from "@/store";
+
 import Layout from "@/components/Layout/Layout";
 import Typography from "@/pages/Typography/Typography";
 import Tables from "@/pages/Tables/Tables";
@@ -10,22 +12,17 @@ import Maps from "@/pages/Maps/Maps";
 import Charts from "@/pages/Charts/Charts";
 import Dashboard from "@/pages/Dashboard/Dashboard";
 import Login from "@/pages/Login/Login";
-import ErrorPage from "@/pages/Error/Error";
 
 Vue.use(Router);
 
-export default new Router({
-  mode: "hash",
+export const router = new Router({
+  mode: "history",
+  base: process.env.BASE_URL,
   routes: [
     {
       path: "/login",
       name: "Login",
       component: Login,
-    },
-    {
-      path: "/error",
-      name: "Error",
-      component: ErrorPage,
     },
     {
       path: "/app",
@@ -68,11 +65,20 @@ export default new Router({
           component: Charts,
         },
       ],
-    },
-    {
-      path: "*",
-      name: "Error",
-      component: ErrorPage,
     }
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  const loggedIn = store.getters["user/getAuthToken"];
+
+  if (!loggedIn && to.name !== "Login") {
+    return window.location.replace("/login");
+  }
+
+  if (loggedIn && (to.name === "Login" || to.name === null)) {
+    return window.location.replace("/app/dashboard");
+  }
+
+  next();
 });

@@ -8,7 +8,7 @@ import Toasted from "vue-toasted";
 import VueApexCharts from "vue-apexcharts";
 
 import store from "./store";
-import router from "./Routes";
+import { router } from "./Routes";
 import App from "./App";
 
 Vue.use(BootstrapVue);
@@ -28,7 +28,7 @@ Vue.component("apexchart", VueApexCharts);
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
-new Vue({
+export default new Vue({
   el: "#app",
   store,
   router,
