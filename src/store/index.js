@@ -6,6 +6,7 @@ import items from "./items.module";
 import layout from "./layout.module";
 import offers from "./offers.module";
 import servers from "./servers.module";
+import soldiers from "./soldiers.module";
 import user from "./user.module";
 import users from "./users.module";
 
@@ -21,6 +22,7 @@ export default new Vuex.Store({
     layout,
     offers,
     servers,
+    soldiers,
     user,
     users
   },

@@ -3,7 +3,7 @@
     <b-breadcrumb>
       <b-breadcrumb-item>TU JESTEŚ</b-breadcrumb-item>
       <b-breadcrumb-item>
-        <router-link to="/app/items">
+        <router-link to="/app/users">
           Lista użytkowników
         </router-link>
       </b-breadcrumb-item>
