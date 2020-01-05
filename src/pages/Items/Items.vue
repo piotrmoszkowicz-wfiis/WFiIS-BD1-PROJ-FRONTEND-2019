@@ -30,7 +30,7 @@
                   <td>{{ item.name }}</td>
                   <td>{{ item.type }}</td>
                   <td>{{ item.category }}</td>
-                  <td>{{ getKit(item.kit) }}</td>
+                  <td>{{ kitIdToName(item.kit) }}</td>
                   <td>
                     <span class="icon">
                       <i class="fi flaticon-briefcase" :class="item.buyable ? 'text-success' : 'text-danger'" />
@@ -63,6 +63,7 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import Widget from "@/components/Widget/Widget";
+import { kitIdToName } from "@/utils"
 
 export default {
   name: "Items",
@@ -75,20 +76,7 @@ export default {
   },
   methods: {
     ...mapActions("items", ["getItems"]),
-    getKit(kitId) {
-      switch(kitId) {
-        case 0:
-          return "Snajper";
-        case 1:
-          return "Szturmowiec";
-        case 2:
-          return "Medyk";
-        case 3:
-          return "Inżynier";
-        case -1:
-          return "Wszystkie";
-      }
-    }
+    kitIdToName
   }
 };
 </script>

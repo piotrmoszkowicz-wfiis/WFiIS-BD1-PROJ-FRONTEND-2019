@@ -37,7 +37,7 @@ const mutations = {
     state.serverList = servers;
   },
 
-  setUser(state, server) {
+  setServer(state, server) {
     state.currentServer = server;
   },
 

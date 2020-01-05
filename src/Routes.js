@@ -45,6 +45,11 @@ export const router = new Router({
           component: () => import("@/pages/Servers/Servers")
         },
         {
+          path: "servers/view/:serverId",
+          name: "Server",
+          component: () => import("@/pages/Servers/ServerView/Server")
+        },
+        {
           path: "users",
           name: "Users",
           component: () => import("@/pages/Users/Users")
@@ -86,7 +91,6 @@ export const router = new Router({
 
 router.beforeEach((to, from, next) => {
   const loggedIn = store.getters["user/getAuthToken"];
-
   if (!loggedIn && to.name !== "Login") {
     return window.location.replace("/login");
   }
