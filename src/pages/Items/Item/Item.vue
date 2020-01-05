@@ -10,10 +10,7 @@
       <b-breadcrumb-item active>Szczegóły przedmiotu</b-breadcrumb-item>
     </b-breadcrumb>
     <h2 class="page-title">
-      Szczegóły <span class="fw-semi-bold">przedmiotu</span> -
-      <router-link :to="`/app/items/edit/${itemId}`">
-        Edytuj przedmiot
-      </router-link>
+      Szczegóły <span class="fw-semi-bold">przedmiotu</span>
     </h2>
     <b-row v-if="this.currentItem">
       <b-col md="4">
