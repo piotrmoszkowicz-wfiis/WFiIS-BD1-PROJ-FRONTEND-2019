@@ -32,4 +32,19 @@ export const kitIdToName = kitId => {
     case -1:
       return "Wszystkie";
   }
-}
+};
+
+export const regionCodeToName = regionCode => {
+  switch(regionCode) {
+    case "nrt":
+      return "Azja";
+    case "syd":
+      return "Australia";
+    case "gva":
+      return "Europa";
+    case "sjc":
+      return "US - Zachód";
+    case "iad":
+      return "US - Wschód";
+  }
+};
