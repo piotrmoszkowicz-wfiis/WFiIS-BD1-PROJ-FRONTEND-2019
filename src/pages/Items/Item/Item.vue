@@ -55,7 +55,7 @@
               <td>
                 <router-link :to="`/app/offers/edit/${offer.id}`" class="text-info">
                       <span class="icon">
-                        <i class="fi flaticon-binoculars"/>
+                        <i class="fi flaticon-edit-1"/>
                       </span>
                   Edytuj
                 </router-link>
