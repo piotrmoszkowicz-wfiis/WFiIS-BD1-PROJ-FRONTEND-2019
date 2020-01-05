@@ -5,7 +5,10 @@
       <b-breadcrumb-item active>Lista serwerów</b-breadcrumb-item>
     </b-breadcrumb>
     <h2 class="page-title">
-      Lista <span class="fw-semi-bold">serwerów</span>
+      Lista <span class="fw-semi-bold">serwerów</span> -
+      <router-link to="/app/servers/add">
+        Dodaj nowy serwer
+      </router-link>
     </h2>
     <b-row>
       <b-col>
@@ -32,7 +35,7 @@
                   <td>{{ server.name }}</td>
                   <td>{{ server.guid }}</td>
                   <td>{{ server.password ? server.password : "brak" }}</td>
-                  <td>{{ server.region }}</td>
+                  <td>{{ regionCodeToName(server.region) }}</td>
                   <td>{{ server.numberOfCurrentPlayers }} / {{ server.capacity }}</td>
                   <td>{{ server.ip }}</td>
                   <td>
@@ -67,6 +70,7 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import Widget from "@/components/Widget/Widget";
+import { regionCodeToName } from "@/utils";
 
 export default {
   name: "Servers",
@@ -78,7 +82,8 @@ export default {
     ...mapState("servers", ["serverList"])
   },
   methods: {
-    ...mapActions("servers", ["getServers"])
+    ...mapActions("servers", ["getServers"]),
+    regionCodeToName
   }
 };
 </script>

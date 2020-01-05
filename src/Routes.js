@@ -50,6 +50,11 @@ export const router = new Router({
           component: () => import("@/pages/Servers/ServerView/Server")
         },
         {
+          path: "servers/add",
+          name: "ServerAdd",
+          component: () => import("@/pages/Servers/ServerAdd/ServerAdd")
+        },
+        {
           path: "users",
           name: "Users",
           component: () => import("@/pages/Users/Users")
