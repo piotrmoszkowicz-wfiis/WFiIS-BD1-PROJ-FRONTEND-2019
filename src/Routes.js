@@ -95,6 +95,11 @@ export const router = new Router({
           component: () => import("@/pages/Users/Users")
         },
         {
+          path: "users/edit/:userId",
+          name: "UserEdit",
+          component: () => import("@/pages/Users/UserEdit/UserEdit")
+        },
+        {
           path: "users/view/:userId",
           name: "User",
           component: () => import("@/pages/Users/User/User")

@@ -1,4 +1,4 @@
-import { getUser, getUsers } from "../api";
+import { getUser, getUsers, updateUser } from "../api";
 
 const initialState = () => ({
   currentUser: null,
@@ -29,6 +29,12 @@ const actions = {
       // eslint-disable-next-line
       console.error("Error while loading users data...", err);
     }
+  },
+  async updateUser({ commit }, { id, ...payload }) {
+    const result = await updateUser(id, payload);
+    if (result && result.data && result.updated) {
+      commit("updateUser", { id, ...payload });
+    }
   }
 };
 
@@ -48,6 +54,7 @@ const mutations = {
   updateUser(state, user) {
     state.usersList = state.usersList.filter(existingUser => existingUser.id === user.id);
     state.usersList.push(user);
+    state.currentUser = user;
   }
 };
 
