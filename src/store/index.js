@@ -4,6 +4,7 @@ import VuexPersistence from "vuex-persist";
 
 import items from "./items.module";
 import layout from "./layout.module";
+import offers from "./offers.module";
 import servers from "./servers.module";
 import user from "./user.module";
 import users from "./users.module";
@@ -18,6 +19,7 @@ export default new Vuex.Store({
   modules: {
     items,
     layout,
+    offers,
     servers,
     user,
     users
