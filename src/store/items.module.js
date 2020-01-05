@@ -43,6 +43,10 @@ const mutations = {
     state.itemsList.push(item);
   },
 
+  addOffer(state, offer) {
+    state.currentItem.offers.push(offer);
+  },
+
   setItems(state, items) {
     state.itemsList = items;
   },
