@@ -33,6 +33,10 @@ const actions = {
 };
 
 const mutations = {
+  addSoldier(state, soldier) {
+    state.currentUser.soldiers.push(soldier);
+  },
+
   setUsers(state, users) {
     state.usersList = users;
   },

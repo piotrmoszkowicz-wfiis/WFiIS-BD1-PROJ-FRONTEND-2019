@@ -1,4 +1,4 @@
-import { getSoldier } from "../api";
+import { addSoldier, getSoldier } from "../api";
 
 const initialState = () => ({
   currentSoldier: null
@@ -7,6 +7,12 @@ const initialState = () => ({
 const state = initialState();
 
 const actions = {
+  async addSoldier({ commit }, soldierData) {
+    const result = await addSoldier(soldierData);
+    if (result && result.data) {
+      commit("users/addSoldier", result.data, { root: true });
+    }
+  },
   async getSoldier({ commit }, soldierId) {
     try {
       const result = await getSoldier(soldierId);
