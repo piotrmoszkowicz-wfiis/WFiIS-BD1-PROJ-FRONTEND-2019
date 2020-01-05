@@ -10,10 +10,7 @@
       <b-breadcrumb-item active>Szczegóły serwera</b-breadcrumb-item>
     </b-breadcrumb>
     <h2 class="page-title">
-      Szczegóły <span class="fw-semi-bold">serwera</span> -
-      <router-link :to="`/app/servers/edit/${this.serverId}`">
-        Edytuj
-      </router-link>
+      Szczegóły <span class="fw-semi-bold">serwera</span>
     </h2>
     <b-row v-if="this.currentServer">
       <b-col md="3">
@@ -33,7 +30,7 @@
       <b-col md="3">
         <Widget>
           <p>IP: {{ this.currentServer.ip }}</p>
-          <p>Region: {{ this.currentServer.region }}</p>
+          <p>Region: {{ regionCodeToName(this.currentServer.region) }}</p>
           <p>Online: {{ this.currentServer.online ? "Tak" : "Nie" }}</p>
         </Widget>
       </b-col>
@@ -78,7 +75,7 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import Widget from "@/components/Widget/Widget";
-import { gameModeIdToName, mapIdToName, kitIdToName } from "@/utils"
+import { gameModeIdToName, mapIdToName, kitIdToName, regionCodeToName } from "@/utils"
 
 export default {
   name: "Server",
@@ -94,7 +91,10 @@ export default {
       return `${mapIdToName(mapDetails[0])} - ${gameModeIdToName(mapDetails[1])}`;
     },
     soldierList() {
-      return Object.values(JSON.parse(this.currentServer.currentPlayers));
+      if (this.currentServer.numberOfCurrentPlayers > 0) {
+        return Object.values(JSON.parse(this.currentServer.currentPlayers));
+      }
+      return [];
     },
     serverId() {
       return this.$router.currentRoute.params.serverId;
@@ -102,7 +102,8 @@ export default {
   },
   methods: {
     ...mapActions("servers", ["getServer"]),
-    kitIdToName
+    kitIdToName,
+    regionCodeToName
   }
 };
 </script>
