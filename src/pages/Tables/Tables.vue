@@ -16,7 +16,6 @@
               <thead>
                 <tr>
                   <th class="hidden-sm-down">#</th>
-                  <th>Picture</th>
                   <th>Description</th>
                   <th class="hidden-sm-down">Info</th>
                   <th class="hidden-sm-down">Date</th>
@@ -27,9 +26,6 @@
               <tbody>
                 <tr v-for="row in tableStyles" :key="row.id">
                   <td>{{row.id}}</td>
-                  <td>
-                    <img class="img-rounded" :src="row.picture" alt="" height="50" />
-                  </td>
                   <td>
                     {{row.description}}
                     <div v-if="row.label">
@@ -443,7 +439,6 @@ export default {
       tableStyles: [
         {
           id: 1,
-          picture: require("../../assets/tables/1.jpg"), // eslint-disable-line global-require
           description: "Palo Alto",
           info: {
             type: "JPEG",
@@ -458,7 +453,6 @@ export default {
         },
         {
           id: 2,
-          picture: require("../../assets/tables/2.jpg"), // eslint-disable-line global-require
           description: "The Sky",
           info: {
             type: "PSD",
@@ -473,7 +467,6 @@ export default {
         },
         {
           id: 3,
-          picture: require("../../assets/tables/3.jpg"), // eslint-disable-line global-require
           description: "Down the road",
           label: {
             colorClass: "danger",
@@ -492,7 +485,6 @@ export default {
         },
         {
           id: 4,
-          picture: require("../../assets/tables/4.jpg"), // eslint-disable-line global-require
           description: "The Edge",
           info: {
             type: "PNG",
@@ -507,7 +499,6 @@ export default {
         },
         {
           id: 5,
-          picture: require("../../assets/tables/5.jpg"), // eslint-disable-line global-require
           description: "Fortress",
           info: {
             type: "JPEG",
