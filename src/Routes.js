@@ -80,6 +80,11 @@ export const router = new Router({
           component: () => import("@/pages/Users/SoldierAdd/SoldierAdd")
         },
         {
+          path: "soldiers/edit/:soldierId",
+          name: "SoldierEdit",
+          component: () => import("@/pages/Users/SoldierEdit/SoldierEdit")
+        },
+        {
           path: "soldiers/view/:soldierId",
           name: "Soldier",
           component: () => import("@/pages/Users/Soldier/Soldier")
