@@ -1,7 +1,7 @@
 import { getItem, getItems } from "../api";
 
 const initialState = () => ({
-  currentServer: null,
+  currentItem: null,
   itemsList: null
 });
 
@@ -38,7 +38,7 @@ const mutations = {
   },
 
   setItem(state, item) {
-    state.currentServer = item;
+    state.currentItem = item;
   },
 
   updateItem(state, item) {

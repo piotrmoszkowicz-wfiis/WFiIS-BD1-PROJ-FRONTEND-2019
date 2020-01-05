@@ -5,7 +5,10 @@
       <b-breadcrumb-item active>Lista przedmiotów</b-breadcrumb-item>
     </b-breadcrumb>
     <h2 class="page-title">
-      Lista <span class="fw-semi-bold">przedmiotów</span>
+      Lista <span class="fw-semi-bold">przedmiotów</span> -
+      <router-link to="/app/items/add">
+        Dodaj nowy przedmiot
+      </router-link>
     </h2>
     <b-row>
       <b-col>

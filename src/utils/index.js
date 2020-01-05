@@ -48,3 +48,10 @@ export const regionCodeToName = regionCode => {
       return "US - Wschód";
   }
 };
+
+export const currencyIdToName = currencyId => {
+  if (currencyId === "_AC") {
+    return "Credits";
+  }
+  return "Funds";
+};
