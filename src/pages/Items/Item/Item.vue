@@ -53,13 +53,13 @@
               <td>{{ offer.isUnlimited ? "Tak" : "Nie" }}</td>
               <td>{{ offer.createdAt }}</td>
               <td>
-                <router-link :to="`/app/offer/edit/${offer.id}`" class="text-info">
+                <router-link :to="`/app/offers/edit/${offer.id}`" class="text-info">
                       <span class="icon">
                         <i class="fi flaticon-binoculars"/>
                       </span>
                   Edytuj
                 </router-link>
-                <router-link :to="`/app/offer/delete/${offer.id}`" class="text-danger">
+                <router-link :to="`/app/offers/delete/${offer.id}`" class="text-danger">
                       <span class="icon">
                         <i class="fi flaticon-trash"/>
                       </span>
