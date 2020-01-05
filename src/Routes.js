@@ -40,6 +40,11 @@ export const router = new Router({
           component: () => import("@/pages/Items/Items")
         },
         {
+          path: "items/view/:itemId",
+          name: "Item",
+          component: () => import("@/pages/Items/Item/Item")
+        },
+        {
           path: "servers",
           name: "Servers",
           component: () => import("@/pages/Servers/Servers")
