@@ -1,4 +1,4 @@
-import { getItem, getItems } from "../api";
+import { addItem, getItem, getItems } from "../api";
 
 const initialState = () => ({
   currentItem: null,
@@ -8,6 +8,12 @@ const initialState = () => ({
 const state = initialState();
 
 const actions = {
+  async addItem({ commit }, itemData) {
+    const result = await addItem(itemData);
+    if (result && result.data) {
+      commit("addItem", result.data);
+    }
+  },
   async getItem({ commit }, itemId) {
     try {
       const result = await getItem(itemId);
@@ -33,6 +39,10 @@ const actions = {
 };
 
 const mutations = {
+  addItem(state, item) {
+    state.itemsList.push(item);
+  },
+
   setItems(state, items) {
     state.itemsList = items;
   },
