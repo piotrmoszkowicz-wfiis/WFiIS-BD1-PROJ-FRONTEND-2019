@@ -52,7 +52,8 @@ const mutations = {
   },
 
   updateServer(state, server) {
-    state.serverList = state.serverList.filter(existingServer => existingServer.id === server.id).push(server);
+    state.serverList = state.serverList.filter(existingServer => existingServer.id === server.id);
+    state.serverList.push(server);
     state.currentServer = server;
   }
 };

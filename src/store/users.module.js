@@ -42,7 +42,8 @@ const mutations = {
   },
 
   updateUser(state, user) {
-    state.usersList = state.usersList.filter(existingUser => existingUser.id === user.id).push(user);
+    state.usersList = state.usersList.filter(existingUser => existingUser.id === user.id);
+    state.usersList.push(user);
   }
 };
 

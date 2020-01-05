@@ -56,7 +56,13 @@ const mutations = {
   },
 
   updateItem(state, item) {
-    state.itemsList = state.itemsList.filter(existingItem => existingItem.id === item.id).push(item);
+    state.itemsList = state.itemsList.filter(existingItem => existingItem.id === item.id);
+    state.itemsList.push(item);
+  },
+
+  updateOffer(state, offer) {
+    state.currentItem.offers = state.currentItem.offers.filter(exisitingOffer => exisitingOffer.id === offer.id);
+    state.currentItem.offers.push(offer);
   }
 };
 
