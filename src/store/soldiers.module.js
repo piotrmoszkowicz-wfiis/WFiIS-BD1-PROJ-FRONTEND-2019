@@ -1,4 +1,4 @@
-import { addSoldier, getSoldier } from "../api";
+import { addSoldier, getSoldier, updateSolider } from "../api";
 
 const initialState = () => ({
   currentSoldier: null
@@ -22,6 +22,12 @@ const actions = {
     } catch (err) {
       // eslint-disable-next-line
       console.error("Error while loading single soldier data", err);
+    }
+  },
+  async updateSoldier({ commit }, { id, ...payload }) {
+    const result = await updateSolider(id, payload);
+    if (result && result.data && result.data.updated) {
+      commit("setSoldier", { id, ...payload });
     }
   }
 };
