@@ -99,3 +99,7 @@ export const postLogin = (email, password) => {
     password
   });
 };
+
+export const updateUser = (userId, payload) => {
+  return axiosWrapper.put(endpoints.put.user(userId), payload);
+};
