@@ -1,4 +1,4 @@
-import { addItem, getItem, getItems } from "../api";
+import { addItem, getItem, getItems, giveItem } from "../api";
 
 const initialState = () => ({
   currentItem: null,
@@ -25,15 +25,21 @@ const actions = {
       console.error("Error while loading single item data", err);
     }
   },
-  async getItems({ commit }) {
+  async getItems({ commit }, kitId = "") {
     try {
-      const result = await getItems();
+      const result = await getItems(kitId);
       if (result && result.data) {
         commit("setItems", result.data);
       }
     } catch (err) {
       // eslint-disable-next-line
       console.error("Error while loading items data...", err);
+    }
+  },
+  async giveItem({ dispatch }, payload) {
+    const result = await giveItem(payload);
+    if (result && result.data) {
+      dispatch("soldiers/getSoldier", { root: true }, payload.ownerId);
     }
   }
 };

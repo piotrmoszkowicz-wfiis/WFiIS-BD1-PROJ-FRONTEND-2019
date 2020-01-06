@@ -1,7 +1,7 @@
 export default {
   get: {
     item: itemId => `/item/single/${itemId}`,
-    items: () => "/item",
+    items: kitId => `/item/${kitId}`,
     servers: () => "/server",
     server: serverId => `/server/single/${serverId}`,
     soldier: soldierId => `/soldier/single/${soldierId}`,
