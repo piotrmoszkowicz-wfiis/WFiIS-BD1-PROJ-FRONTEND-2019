@@ -17,8 +17,8 @@ export const giveItem = payload => {
   return axiosWrapper.post(endpoints.post.giveItem(), payload);
 };
 
-export const getItems = () => {
-  return axiosWrapper.get(endpoints.get.items());
+export const getItems = kitId => {
+  return axiosWrapper.get(endpoints.get.items(kitId));
 };
 
 export const getItem = itemId => {
