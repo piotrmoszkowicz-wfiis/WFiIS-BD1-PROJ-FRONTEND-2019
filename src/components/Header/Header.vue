@@ -13,21 +13,19 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
-  name: "Headed",
+  name: "Header",
   computed: {
     ...mapState("user", ["userData"])
   },
   methods: {
+    ...mapActions("user", ["logOut"]),
     logout() {
-      // window.localStorage.setItem("authenticated", false);
-      // this.$router.push("/login");
+      this.logOut();
+      this.$router.push("/login");
     },
-  },
-  created() {
-
   },
   data() {
     return {

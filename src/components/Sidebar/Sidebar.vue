@@ -37,19 +37,6 @@
           isHeader
       />
     </ul>
-    <div class="sidebarAlerts d-sm-down-none">
-      <b-alert
-        v-for="alert in alerts"
-        :key="alert.id"
-        class="sidebarAlert" variant="transparent"
-        show dismissible
-      >
-        <span>{{alert.title}}</span><br />
-        <b-progress class="sidebarProgress progress-xs mt-1"
-          :variant="alert.color" :value="alert.value" :max="100" />
-        <small>{{alert.footer}}</small>
-      </b-alert>
-    </div>
   </nav>
   </b-collapse>
 </template>

@@ -24,6 +24,7 @@ const actions = {
 
   logOut({ commit }) {
     commit("setAuthToken", null);
+    commit("setUserData", null);
     delete axiosWrapper.defaults.headers.Authorization;
   }
 };
@@ -36,6 +37,10 @@ const mutations = {
 
   setAuthToken(state, authToken) {
     state.authToken = authToken;
+  },
+
+  setUserData(state, userData) {
+    state.userData = userData;
   }
 };
 
