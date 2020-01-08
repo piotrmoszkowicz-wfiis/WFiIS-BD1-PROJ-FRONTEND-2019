@@ -5,6 +5,7 @@ export default {
     servers: () => "/server",
     server: serverId => `/server/single/${serverId}`,
     soldier: soldierId => `/soldier/single/${soldierId}`,
+    stats: () => "/stats",
     users: () => "/user/list",
     user: userId => `/user/single/${userId}`
   },
