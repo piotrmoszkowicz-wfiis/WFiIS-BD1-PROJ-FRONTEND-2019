@@ -82,6 +82,14 @@ export const updateSolider = (soldierId, payload) => {
 };
 
 /**
+ * Stats module
+ */
+
+export const getStats = () => {
+  return axiosWrapper.get(endpoints.get.stats());
+};
+
+/**
  * User module
  */
 

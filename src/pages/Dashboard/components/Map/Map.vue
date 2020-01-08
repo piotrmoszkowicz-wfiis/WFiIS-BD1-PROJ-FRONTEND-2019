@@ -3,104 +3,77 @@
     <div class="map" ref="map">
 
     </div>
-    <div class="stats">
-      <h6 class="mt-1">GEO-LOCATIONS</h6>
-      <p class="h3 m-0">
-      <span class="mr-xs fw-normal"><AnimatedNumber value="1656843"
-                                                    v-bind="animateNumberOptions"/></span>
-        <i class="fa fa-map-marker"/>
-      </p>
-    </div>
   </div>
 
 </template>
 
 <script>
-  import AnimatedNumber from "animated-number-vue";
-  import * as am4core from "@amcharts/amcharts4/core";
-  import * as am4maps from "@amcharts/amcharts4/maps";
-  import am4geodata_continentsLow from "@amcharts/amcharts4-geodata/continentsLow";
+import * as am4core from "@amcharts/amcharts4/core";
+import * as am4maps from "@amcharts/amcharts4/maps";
+import am4geodata_continentsLow from "@amcharts/amcharts4-geodata/continentsLow";
 
-  import cities from "./mock";
+export default {
+  name: "Map",
+  props: {
+    stats: Array
+  },
+  mounted() {
+    let map = am4core.create(this.$refs.map, am4maps.MapChart);
 
-  export default {
-    name: "Map",
-    components: {AnimatedNumber},
-    data() {
-      return {
-        animateNumberOptions: {
-          duration: 2000,
-          easing: "easeInQuad",
-          formatValue(value) {
-            let number = value.toFixed(0);
-            let numberAsArrayWithSapces = [];
-            while (number >= 1) {
-              numberAsArrayWithSapces.unshift(number % 1000);
-              number = (number / 1000).toFixed();
-            }
-            return numberAsArrayWithSapces.join(" ");
-          }
-        }
-      }
-    },
-    mounted() {
-      let map = am4core.create(this.$refs.map, am4maps.MapChart);
-      map.geodata = am4geodata_continentsLow;
-      map.projection = new am4maps.projections.NaturalEarth1();
-      let polygonSeries = map.series.push(new am4maps.MapPolygonSeries());
-      polygonSeries.useGeodata = true;
-      map.homeZoomLevel = 1.0;
+    map.projection = new am4maps.projections.Mercator();
 
-      map.zoomControl = new am4maps.ZoomControl();
-      map.zoomControl.align = "left";
-      map.zoomControl.valign = "bottom";
-      map.zoomControl.dy = -20;
-      map.zoomControl.minusButton.background.fill = am4core.color("#000");
-      map.zoomControl.minusButton.background.fillOpacity = 0.24;
-      map.zoomControl.minusButton.background.stroke = am4core.color("#ccc");
-      map.zoomControl.plusButton.background.fill = am4core.color("#000");
-      map.zoomControl.plusButton.background.fillOpacity = 0.24;
-      map.zoomControl.plusButton.background.stroke = am4core.color("#ccc");
-      map.zoomControl.plusButton.label.fill = am4core.color("#fff");
-      map.zoomControl.plusButton.label.fontWeight = 600;
-      map.zoomControl.plusButton.label.fontSize = 16;
-      map.zoomControl.minusButton.label.fill = am4core.color("#fff");
-      map.zoomControl.minusButton.label.fontWeight = 600;
-      map.zoomControl.minusButton.label.fontSize = 16;
-      let plusButtonHoverState = map.zoomControl.plusButton.background.states.create("hover");
-      plusButtonHoverState.properties.fillOpacity = 0.24;
-      let minusButtonHoverState = map.zoomControl.minusButton.background.states.create("hover");
-      minusButtonHoverState.properties.fillOpacity = 0.24;
+    let continentsSeries = map.series.push(new am4maps.MapPolygonSeries());
+    continentsSeries.geodata = am4geodata_continentsLow;
+    continentsSeries.useGeodata = true;
+    continentsSeries.exclude = ["antarctica"];
 
-      let polygonTemplate = polygonSeries.mapPolygons.template;
-      polygonTemplate.tooltipText = "{name}";
-      polygonTemplate.fill = am4core.color("#fff");
-      polygonTemplate.fillOpacity = 0.2;
-      let hs = polygonTemplate.states.create("hover");
-      hs.properties.fillOpacity = 0.5;
+    let continentTemplate = continentsSeries.mapPolygons.template;
+    continentTemplate.tooltipText = "{name} - ilość serwerów: {value}";
+    continentTemplate.properties.fillOpacity = 1;
+    continentTemplate.propertyFields.fill = "color";
+    continentTemplate.nonScalingStroke = true;
 
-      polygonTemplate.strokeOpacity = 0.4;
+    continentsSeries.dataFields.zoomLevel = "zoomLevel";
+    continentsSeries.dataFields.zoomGeoPoint = "zoomGeoPoint";
 
-      let citySeries = map.series.push(new am4maps.MapImageSeries());
-      citySeries.data = cities;
-      citySeries.dataFields.value = "size";
+    const iad = this.stats.find(stats => stats.region === "iad");
+    const iadValue = iad ? parseInt(iad.serverCount, 10) : 0;
 
-      let city = citySeries.mapImages.template;
-      city.nonScaling = true;
-      city.propertyFields.latitude = "latitude";
-      city.propertyFields.longitude = "longitude";
-      let circle = city.createChild(am4core.Circle);
-      circle.fill = am4core.color("#ffc247");
-      circle.stroke = am4core.color("#ffffff");
-      circle.strokeWidth = 0;
-      let circleHoverState = circle.states.create("hover");
-      circleHoverState.properties.strokeWidth = 1;
-      circle.tooltipText = "{tooltip}";
-      circle.propertyFields.radius = "size";
+    const sjc = this.stats.find(stats => stats.region === "sjc");
+    const sjcValue = sjc ? parseInt(sjc.serverCount, 10) : 0;
 
-      this.map = map;
-    },
-  };
+    const nrt = this.stats.find(stats => stats.region === "nrt");
+    const nrtValue = nrt ? nrt.serverCount : 0;
+
+    const syd = this.stats.find(stats => stats.region === "syd");
+    const sydValue = syd ? syd.serverCount : 0;
+
+    const gva = this.stats.find(stats => stats.region === "gva");
+    const gvaValue = gva ? gva.serverCount : 0;
+
+    continentsSeries.data = [ {
+      "id": "africa",
+      "value": 0
+    }, {
+      "id": "asia",
+      "value": nrtValue
+    }, {
+      "id": "oceania",
+      "value": sydValue
+    }, {
+      "id": "europe",
+      "value": gvaValue
+    }, {
+      "id": "northAmerica",
+      "value": sjcValue + iadValue
+    }, {
+      "id": "southAmerica",
+      "value": 0
+    }];
+
+    this.map = map;
+  }
+};
 </script>
 
 <style src="./Map.scss" lang="scss"/>
