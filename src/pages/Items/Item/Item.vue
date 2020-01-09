@@ -59,12 +59,12 @@
                       </span>
                   Edytuj
                 </router-link>
-                <router-link :to="`/app/offers/delete/${offer.id}`" class="text-danger">
+                <a href="#" @click.prevent="showDeleteBox(offer.id)" class="text-danger">
                       <span class="icon">
                         <i class="fi flaticon-trash"/>
                       </span>
                   Usuń
-                </router-link>
+                </a>
               </td>
             </tr>
             </tbody>
@@ -94,8 +94,38 @@ export default {
   },
   methods: {
     ...mapActions("items", ["getItem"]),
+    ...mapActions("offers", ["deleteOffer"]),
     currencyIdToName,
-    kitIdToName
+    kitIdToName,
+    showDeleteBox(offerId) {
+      this.$bvModal.msgBoxConfirm("Na pewno chcesz usunąć ofertę?", {
+        title: "Usuń ofertę",
+        size: "sm",
+        buttonSize: "sm",
+        okVariant: "danger",
+        okTitle: "TAK",
+        cancelTitle: "NIE",
+        footerClass: "p-2",
+        hideHeaderClose: false,
+        centered: true
+      })
+          .then(async value => {
+            if (value) {
+              try {
+                await this.deleteOffer(offerId);
+                this.$toasted.info("Pomyślnie usunięto ofertę", {
+                  duration: 5000,
+                  position: "top-center"
+                });
+              } catch (err) {
+                this.$toasted.error(`Wystąpił błąd - ${err}`, {
+                  duration: 5000,
+                  position: "top-center"
+                });
+              }
+            }
+          })
+    }
   }
 };
 </script>

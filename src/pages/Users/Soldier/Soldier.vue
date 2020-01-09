@@ -80,6 +80,7 @@
               <th>Pozycja na pasku</th>
               <th>Data kupienia</th>
               <th>Data ważności</th>
+              <th>Akcje</th>
             </tr>
             </thead>
             <tbody v-if="this.currentSoldier.items">
@@ -90,6 +91,14 @@
               <td>{{ item.barPosition ? item.barPosition : "-" }}</td>
               <td>{{ item.createdAt}}</td>
               <td>{{ item.availableTill }}</td>
+              <td>
+                <a href="#" @click.prevent="showDeleteBox(item.id)" class="text-danger">
+                      <span class="icon">
+                        <i class="fi flaticon-trash"/>
+                      </span>
+                  Usuń
+                </a>
+              </td>
             </tr>
             </tbody>
           </table>
@@ -122,7 +131,37 @@ export default {
   },
   methods: {
     ...mapActions("soldiers", ["getSoldier"]),
-    kitIdToName
+    ...mapActions("items", ["revokeItem"]),
+    kitIdToName,
+    showDeleteBox(itemId) {
+      this.$bvModal.msgBoxConfirm("Na pewno chcesz zabrać przedmiot?", {
+        title: "Zabierz przedmiot",
+        size: "sm",
+        buttonSize: "sm",
+        okVariant: "danger",
+        okTitle: "TAK",
+        cancelTitle: "NIE",
+        footerClass: "p-2",
+        hideHeaderClose: false,
+        centered: true
+      })
+          .then(async value => {
+            if (value) {
+              try {
+                await this.revokeItem(itemId);
+                this.$toasted.info("Pomyślnie zabrano przedmiot", {
+                  duration: 5000,
+                  position: "top-center"
+                });
+              } catch (err) {
+                this.$toasted.error(`Wystąpił błąd - ${err}`, {
+                  duration: 5000,
+                  position: "top-center"
+                });
+              }
+            }
+          })
+    }
   }
 };
 </script>
