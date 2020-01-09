@@ -11,7 +11,7 @@ const actions = {
   async deleteOffer({ commit }, offerId) {
     const result = await deleteOffer(offerId);
     if (result && result.data && result.data.deleted) {
-      commit("items/deleteOffer", offerId, { root: true });
+      commit("items/removeOffer", offerId, { root: true });
     }
   },
 
