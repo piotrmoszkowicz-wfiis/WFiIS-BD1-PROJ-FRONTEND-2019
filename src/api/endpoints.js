@@ -23,6 +23,7 @@ export default {
     user: userId => `/user/${userId}`
   },
   delete: {
+    revokeItem: ownedItemId => `/item/revoke/${ownedItemId}`,
     item: itemId => `/item/${itemId}`,
     offer: offerId => `/offer/${offerId}`,
     server: serverId => `/server/${serverId}`,

@@ -25,6 +25,10 @@ export const getItem = itemId => {
   return axiosWrapper.get(endpoints.get.item(itemId));
 };
 
+export const revokeItem = ownedItemId => {
+  return axiosWrapper.delete(endpoints.delete.revokeItem(ownedItemId));
+};
+
 /**
  * Offer module
  */
