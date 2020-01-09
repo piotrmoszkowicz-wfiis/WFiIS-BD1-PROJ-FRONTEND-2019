@@ -4,6 +4,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm i
 COPY . .
+
+## Setup production ENV
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
+
 RUN npm run build
 
 # production stage
