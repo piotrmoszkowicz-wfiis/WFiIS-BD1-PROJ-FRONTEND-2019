@@ -1,4 +1,4 @@
-import { addSoldier, getSoldier, updateSolider } from "../api";
+import { addSoldier, deleteSoldier, getSoldier, updateSolider } from "../api";
 
 const initialState = () => ({
   currentSoldier: null
@@ -11,6 +11,12 @@ const actions = {
     const result = await addSoldier(soldierData);
     if (result && result.data) {
       commit("users/addSoldier", result.data, { root: true });
+    }
+  },
+  async deleteSoldier({ commit }, soldierId) {
+    const result = await deleteSoldier(soldierId);
+    if (result && result.data && result.data.deleted) {
+      commit("users/removeSoldier", soldierId, { root: true });
     }
   },
   async getSoldier({ commit }, soldierId) {
@@ -35,6 +41,10 @@ const actions = {
 const mutations = {
   setSoldier(state, soldier) {
     state.currentSoldier = soldier;
+  },
+
+  revokeItem(state, itemId) {
+    state.currentSoldier.items = state.currentSoldier.items.filter(item => item.id !== itemId);
   }
 };
 

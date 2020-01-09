@@ -51,6 +51,10 @@ const mutations = {
     state.currentUser = user;
   },
 
+  removeSoldier(state, soldierId) {
+    state.currentUser.soldiers = state.currentUser.soldiers.filter(existingSoldier => existingSoldier.id !== soldierId);
+  },
+
   updateUser(state, user) {
     state.usersList = state.usersList.filter(existingUser => existingUser.id === user.id);
     state.usersList.push(user);

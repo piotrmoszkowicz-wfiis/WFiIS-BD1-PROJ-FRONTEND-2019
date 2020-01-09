@@ -1,4 +1,4 @@
-import { addItem, getItem, getItems, giveItem } from "../api";
+import { addItem, deleteItem, getItem, getItems, giveItem, revokeItem } from "../api";
 
 const initialState = () => ({
   currentItem: null,
@@ -12,6 +12,12 @@ const actions = {
     const result = await addItem(itemData);
     if (result && result.data) {
       commit("addItem", result.data);
+    }
+  },
+  async deleteItem({ commit }, itemId) {
+    const result = await deleteItem(itemId);
+    if (result && result.data && result.data.deleted) {
+      commit("removeItem", itemId);
     }
   },
   async getItem({ commit }, itemId) {
@@ -39,7 +45,13 @@ const actions = {
   async giveItem({ dispatch }, payload) {
     const result = await giveItem(payload);
     if (result && result.data) {
-      dispatch("soldiers/getSoldier", { root: true }, payload.ownerId);
+      dispatch("soldiers/getSoldier", payload.ownerId, { root: true });
+    }
+  },
+  async revokeItem({ commit }, ownedItemId) {
+    const result = await revokeItem(ownedItemId);
+    if (result && result.data && result.data.deleted) {
+      commit("soldiers/revokeItem", ownedItemId, { root: true });
     }
   }
 };
@@ -61,9 +73,12 @@ const mutations = {
     state.currentItem = item;
   },
 
-  updateItem(state, item) {
-    state.itemsList = state.itemsList.filter(existingItem => existingItem.id === item.id);
-    state.itemsList.push(item);
+  removeItem(state, itemId) {
+    state.itemsList = state.itemsList.filter(existingItem => existingItem.id === itemId);
+  },
+
+  removeOffer(state, offerId) {
+    state.currentItem.offers = state.currentItem.offers.filter(exisitingOffer => exisitingOffer.id !== offerId);
   },
 
   updateOffer(state, offer) {
