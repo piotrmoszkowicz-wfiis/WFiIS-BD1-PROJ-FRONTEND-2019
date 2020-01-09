@@ -57,12 +57,12 @@
                       </span>
                   Podgląd
                 </router-link>
-                <router-link :to="`/app/soldiers/delete/${soldier.id}`" class="text-danger">
+                <a href="#" @click.prevent="showDeleteBox(soldier.id)" class="text-danger">
                       <span class="icon">
                         <i class="fi flaticon-trash"/>
                       </span>
                   Usuń
-                </router-link>
+                </a>
               </td>
             </tr>
             </tbody>
@@ -92,8 +92,38 @@ export default {
   },
   methods: {
     ...mapActions("users", ["getUser"]),
+    ...mapActions("soldiers", ["deleteSoldier"]),
     currencyIdToName,
-    kitIdToName
+    kitIdToName,
+    showDeleteBox(soldierId) {
+      this.$bvModal.msgBoxConfirm("Na pewno chcesz usunąć żołnierza?", {
+        title: "Usuń żołnierza",
+        size: "sm",
+        buttonSize: "sm",
+        okVariant: "danger",
+        okTitle: "TAK",
+        cancelTitle: "NIE",
+        footerClass: "p-2",
+        hideHeaderClose: false,
+        centered: true
+      })
+          .then(async value => {
+            if (value) {
+              try {
+                await this.deleteSoldier(soldierId);
+                this.$toasted.info("Pomyślnie usunięto żołnierza", {
+                  duration: 5000,
+                  position: "top-center"
+                });
+              } catch (err) {
+                this.$toasted.error(`Wystąpił błąd - ${err}`, {
+                  duration: 5000,
+                  position: "top-center"
+                });
+              }
+            }
+          })
+    }
   }
 };
 </script>

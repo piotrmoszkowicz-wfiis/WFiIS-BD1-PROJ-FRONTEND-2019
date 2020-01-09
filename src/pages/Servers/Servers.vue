@@ -50,12 +50,12 @@
                       </span>
                       Podgląd
                     </router-link>
-                    <router-link :to="`/app/servers/delete/${server.id}`" class="text-danger">
+                    <a href="#" @click.prevent="showDeleteBox(server.id)" class="text-danger">
                       <span class="icon">
                         <i class="fi flaticon-trash"/>
                       </span>
                       Usuń
-                    </router-link>
+                    </a>
                   </td>
                 </tr>
               </tbody>
@@ -82,8 +82,37 @@ export default {
     ...mapState("servers", ["serverList"])
   },
   methods: {
-    ...mapActions("servers", ["getServers"]),
-    regionCodeToName
+    ...mapActions("servers", ["deleteServer", "getServers"]),
+    regionCodeToName,
+    showDeleteBox(serverId) {
+      this.$bvModal.msgBoxConfirm("Na pewno chcesz usunąć server?", {
+        title: "Usuń server",
+        size: "sm",
+        buttonSize: "sm",
+        okVariant: "danger",
+        okTitle: "TAK",
+        cancelTitle: "NIE",
+        footerClass: "p-2",
+        hideHeaderClose: false,
+        centered: true
+      })
+          .then(async value => {
+            if (value) {
+              try {
+                await this.deleteServer(serverId);
+                this.$toasted.info("Pomyślnie usunięto server", {
+                  duration: 5000,
+                  position: "top-center"
+                });
+              } catch (err) {
+                this.$toasted.error(`Wystąpił błąd - ${err}`, {
+                  duration: 5000,
+                  position: "top-center"
+                });
+              }
+            }
+          })
+    }
   }
 };
 </script>

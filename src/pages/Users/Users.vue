@@ -35,12 +35,12 @@
                       </span>
                       Podgląd
                     </router-link>
-                    <router-link :to="`/app/users/delete/${user.id}`" class="text-danger">
+                    <a href="#" @click.prevent="showDeleteBox(user.id)" class="text-danger">
                       <span class="icon">
                         <i class="fi flaticon-trash"/>
                       </span>
                       Usuń
-                    </router-link>
+                    </a>
                   </td>
                 </tr>
               </tbody>
@@ -66,7 +66,36 @@ export default {
     ...mapState("users", ["usersList"])
   },
   methods: {
-    ...mapActions("users", ["getUsers"])
+    ...mapActions("users", ["deleteUser", "getUsers"]),
+    showDeleteBox(userId) {
+      this.$bvModal.msgBoxConfirm("Na pewno chcesz usunąć użytkownika?", {
+        title: "Usuń użytkownika",
+        size: "sm",
+        buttonSize: "sm",
+        okVariant: "danger",
+        okTitle: "TAK",
+        cancelTitle: "NIE",
+        footerClass: "p-2",
+        hideHeaderClose: false,
+        centered: true
+      })
+      .then(async value => {
+        if (value) {
+          try {
+            await this.deleteUser(userId);
+            this.$toasted.info("Pomyślnie usunięto użytkownika", {
+              duration: 5000,
+              position: "top-center"
+            });
+          } catch (err) {
+            this.$toasted.error(`Wystąpił błąd - ${err}`, {
+              duration: 5000,
+              position: "top-center"
+            });
+          }
+        }
+      })
+    }
   }
 };
 </script>

@@ -1,4 +1,4 @@
-import { addServer, getServer, getServers } from "../api";
+import { addServer, deleteServer, getServer, getServers } from "../api";
 
 const initialState = () => ({
   currentServer: null,
@@ -12,6 +12,12 @@ const actions = {
     const result = await addServer(serverData);
     if (result && result.data) {
       commit("addServer", result.data);
+    }
+  },
+  async deleteServer({ commit }, serverId) {
+    const result = await deleteServer(serverId);
+    if (result && result.data && result.data.deleted) {
+      commit("removeServer", serverId);
     }
   },
   async getServer({ commit }, serverId) {
@@ -51,8 +57,12 @@ const mutations = {
     state.currentServer = server;
   },
 
+  removeServer(state, serverId) {
+    state.serverList = state.serverList.filter(existingServer => existingServer.id !== serverId);
+  },
+
   updateServer(state, server) {
-    state.serverList = state.serverList.filter(existingServer => existingServer.id === server.id);
+    state.serverList = state.serverList.filter(existingServer => existingServer.id !== server.id);
     state.serverList.push(server);
     state.currentServer = server;
   }

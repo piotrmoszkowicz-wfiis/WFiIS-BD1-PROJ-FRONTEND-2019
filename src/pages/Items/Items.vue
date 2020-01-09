@@ -46,12 +46,12 @@
                       </span>
                       Podgląd
                     </router-link>
-                    <router-link :to="`/app/items/delete/${item.id}`" class="text-danger">
+                    <a href="#" @click.prevent="showDeleteBox(item.id)" class="text-danger">
                       <span class="icon">
                         <i class="fi flaticon-trash"/>
                       </span>
                       Usuń
-                    </router-link>
+                    </a>
                   </td>
                 </tr>
               </tbody>
@@ -78,8 +78,37 @@ export default {
     ...mapState("items", ["itemsList"])
   },
   methods: {
-    ...mapActions("items", ["getItems"]),
-    kitIdToName
+    ...mapActions("items", ["deleteItem", "getItems"]),
+    kitIdToName,
+    showDeleteBox(itemId) {
+      this.$bvModal.msgBoxConfirm("Na pewno chcesz usunąć przedmiot?", {
+        title: "Usuń przedmiot",
+        size: "sm",
+        buttonSize: "sm",
+        okVariant: "danger",
+        okTitle: "TAK",
+        cancelTitle: "NIE",
+        footerClass: "p-2",
+        hideHeaderClose: false,
+        centered: true
+      })
+          .then(async value => {
+            if (value) {
+              try {
+                await this.deleteItem(itemId);
+                this.$toasted.info("Pomyślnie usunięto przedmiot", {
+                  duration: 5000,
+                  position: "top-center"
+                });
+              } catch (err) {
+                this.$toasted.error(`Wystąpił błąd - ${err}`, {
+                  duration: 5000,
+                  position: "top-center"
+                });
+              }
+            }
+          })
+    }
   }
 };
 </script>
